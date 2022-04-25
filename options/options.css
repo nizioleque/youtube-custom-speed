@@ -1,0 +1,70 @@
+:root {
+    --accent-color: #f00;
+    --header-bg: linear-gradient(180deg, rgba(255,0,0,1) 0%, rgba(255,0,0,0.2) 75%, rgba(255,0,0,0) 100%);
+}
+
+header {
+    height: 50px;
+    margin-bottom: 0;
+    box-shadow: none;
+    text-shadow: 0 0 4px rgba(0,0,0,0.8);
+}
+
+#add-speed input {
+    background-color: transparent;
+    display: inline;
+    width: 100% !important;
+    border: none;
+    color: white;
+    margin: 0 !important;
+}
+
+#add-speed input::-webkit-outer-spin-button,
+#add-speed input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#speed-menu, #add-speed {
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+#speed-menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    justify-content: center;
+}
+
+#add-speed {
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 15px auto 0 auto;
+}
+
+.speed-menu-option {
+    line-height: 25px;
+    color: #e8eaed;
+    padding: 2px 0;
+    border-radius: 999px;
+    width: 60px;
+
+}
+
+#add-speed, .speed-menu-option {
+    background-color: rgba(28, 28, 28, 0.9);
+    text-align: center;
+}
+
+.speed-menu-option:hover {
+    background-color: rgba(255,0,0,0.6);
+}
+
+#add-error {
+    display: none;
+    font-weight: bold;
+    color: red;
+}

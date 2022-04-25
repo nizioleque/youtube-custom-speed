@@ -1,0 +1,11 @@
+{
+    "extName": {
+        "message": "Youtube Custom Speed"
+    },
+    "extNameURL": {
+        "message": "youtube-custom-speed"
+    },
+    "extDescription": {
+        "message": "Change the speed of Youtube videos to whatever you like, with customizable presets and keyboard shortcuts!"
+    }
+}
