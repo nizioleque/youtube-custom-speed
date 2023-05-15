@@ -1,61 +1,48 @@
 ﻿{
-	"manifest_version": 3,
-	"name": "__MSG_extName__",
-	"description": "__MSG_extDescription__",
-	"version": "1.7",
-	"default_locale": "en",
-	"icons": {
-        "128": "icons/icon128.png"
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "version": "1.8",
+  "default_locale": "en",
+  "icons": {
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["storage"],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "action": {
+    "default_popup": "options/options.html"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_end"
     },
-	"permissions": [
-		"storage"
-	],
-
-	"background": {
-		"service_worker": "background.js"
-	},
-
-
-	"action": {
-		"default_popup": "options/options.html"
-	},
-
-	"content_scripts": [
-		{
-			"matches": [
-				"*://www.youtube.com/*"
-			],
-			"js": [
-				"content/content.js"
-			],
-			"run_at": "document_end"
-		},
-		{
-			"matches": [
-				"*://www.youtube.com/*"
-			],
-			"js": [
-				"content/changespeed.js",
-				"content/kbshort.js",
-				"content/menu.js",
-				"content/observer.js",
-				"content/configure.js"
-			],
-			"run_at": "document_start"
-		}
-	],
-	"web_accessible_resources": [
-		{
-			"resources": [
-				"ui.html"
-			],
-			"matches": [
-				"*://www.youtube.com/*"
-			]
-		}
-	],
-	"options_ui": {
-		"page": "options/options.html",
-		"open_in_tab": false
-	}
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": [
+        "content/changespeed.js",
+        "content/kbshort.js",
+        "content/menu.js",
+        "content/observer.js",
+        "content/configure.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["ui.html"],
+      "matches": ["*://www.youtube.com/*"]
+    }
+  ],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": false
+  }
 }
