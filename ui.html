@@ -7,7 +7,6 @@
     }
 
     #speed-text {
-        font-size: 109%;
         color: #ddd;
         cursor: pointer;
     }
@@ -40,6 +39,24 @@
     .speed-active {
         background-color: rgba(255, 255, 255, 0.2) !important;
     }
+
+    #speed-text-container {
+        display: grid;
+    }
+
+    #speed-text-container {
+        display: grid;
+        place-items: center;
+    }
+
+    #speed-text-container > * {
+        font-size: 109%;
+        grid-area: 1 / 1 / 1 / 1;
+    }
+
+    #speed-text-hidden {
+        visibility: hidden;
+    }
 </style>
 
 <button class="ytp-button" aria-pressed="false" id="button-slow">
@@ -50,7 +67,10 @@
     </svg>
 </button>
 
-<span id="speed-text">??x</span>
+<div id="speed-text-container">
+    <span id="speed-text-hidden">9.99x</span>
+    <span id="speed-text">0.00x</span>
+</div>
 
 <button class="ytp-button" aria-pressed="false" id="button-fast">
     <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
