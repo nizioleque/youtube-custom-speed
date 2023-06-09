@@ -10,7 +10,7 @@ document.querySelectorAll('[data-string]').forEach(element => {
 // bug report mailto
 const bugReportURL = `
 mailto: nizioleque@gmail.com
-?subject=${msg('extName')} bug report
+?subject=${msg('extName')} bug report (Firefox)
 &body=PLEASE FILL IN THIS EMAIL TO SEND A BUG REPORT%0D%0A%0D%0A
 PROBLEM:%0D%0A
 [describe the problem]%0D%0A%0D%0A
@@ -26,7 +26,7 @@ document.querySelectorAll('.bugReportURL').forEach(element => {
 });
 
 // store review
-const storeReviewURL = `https://chrome.google.com/webstore/detail/${msg('extNameURL')}/${msg('@@extension_id')}/reviews`;
+const storeReviewURL = `https://addons.mozilla.org/en-US/firefox/addon/youtube-custom-speed/`;
 
 document.querySelectorAll('.storeReviewURL').forEach(element => {
     element.href = storeReviewURL;
