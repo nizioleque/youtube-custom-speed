@@ -52,13 +52,15 @@ function configure() {
 
     // keyboard shortcut event listener
     document.body.addEventListener('keydown', e => {
-        if (e.key === '>') {
+        if (e.shiftKey && e.code === 'Period') {  // physical key for '.'
+            e.preventDefault();
             e.stopPropagation();
-            kbshort(true);
+            kbshort(true); // increase speed
         }
-        else if (e.key === '<') {
+        else if (e.shiftKey && e.code === 'Comma') {  // physical key for ','
+            e.preventDefault();
             e.stopPropagation();
-            kbshort(false);
+            kbshort(false); // decrease speed
         }
     }, { capture: true });
 
