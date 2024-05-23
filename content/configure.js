@@ -52,13 +52,16 @@ function configure() {
 
     // keyboard shortcut event listener
     document.body.addEventListener('keydown', e => {
+        // check if input is focused to not change speed accidentally
+        const activeElement = document.activeElement;
+        const isInput = activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA' || activeElement.isContentEditable;
+        if (isInput) return;
+
         if (e.shiftKey && e.code === 'Period') {  // physical key for '.'
-            e.preventDefault();
             e.stopPropagation();
             kbshort(true); // increase speed
         }
         else if (e.shiftKey && e.code === 'Comma') {  // physical key for ','
-            e.preventDefault();
             e.stopPropagation();
             kbshort(false); // decrease speed
         }
