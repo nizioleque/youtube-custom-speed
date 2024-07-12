@@ -28,5 +28,10 @@
       "resources": ["ui.html"],
       "matches": ["*://www.youtube.com/*"]
     }
-  ]
+  ],
+
+  "options_ui": {
+    "page": "static/popup.html",
+    "open_in_tab": false
+  }
 }
