@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "version": "1.9",
+  "default_locale": "en",
+  "icons": {
+    "128": "static/icon128.png"
+  },
+  "permissions": ["storage"],
+
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "static/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+      "resources": ["ui.html"],
+      "matches": ["*://www.youtube.com/*"]
+    }
+  ]
+}

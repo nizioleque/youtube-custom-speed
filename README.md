@@ -6,6 +6,8 @@ Currently available on the [**Chrome Web Store**](https://chrome.google.com/webs
 
 Now also available on [**Add-ons for Firefox**](https://addons.mozilla.org/en-US/firefox/addon/youtube-custom-speed/)!
 
+> This extension is using the incredible [✨ HeroHunt.ai Chrome Extension Template ✨](https://github.com/herohunt-ai/chrome-extension-react-mui)
+
 ## About
 
 Youtube Custom Speed lets you play any Youtube video at any speed you like, from 0.0125x to 16x!

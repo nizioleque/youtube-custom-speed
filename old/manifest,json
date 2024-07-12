@@ -1,4 +1,4 @@
-﻿{
+{
   "manifest_version": 3,
   "name": "__MSG_extName__",
   "description": "__MSG_extDescription__",
@@ -7,24 +7,29 @@
   "icons": {
     "128": "icons/icon128.png"
   },
-  "permissions": ["storage"],
-
+  "permissions": [
+    "storage"
+  ],
   "background": {
     "service_worker": "background.js"
   },
-
   "action": {
     "default_popup": "options/options.html"
   },
-
   "content_scripts": [
     {
-      "matches": ["*://www.youtube.com/*"],
-      "js": ["content/content.js"],
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "js": [
+        "content/content.js"
+      ],
       "run_at": "document_end"
     },
     {
-      "matches": ["*://www.youtube.com/*"],
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
       "js": [
         "content/changespeed.js",
         "content/kbshort.js",
@@ -37,8 +42,12 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["ui.html"],
-      "matches": ["*://www.youtube.com/*"]
+      "resources": [
+        "ui.html"
+      ],
+      "matches": [
+        "*://www.youtube.com/*"
+      ]
     }
   ],
   "options_ui": {

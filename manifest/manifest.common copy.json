@@ -1,0 +1,25 @@
+{
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "name": "HeroHunt.ai Extension Template",
+  "description": "Build a Chrome extension with React and MUI",
+  "icons": {
+    "128": "static/icon128.png",
+    "48": "static/icon48.png",
+    "32": "static/icon32.png",
+    "16": "static/icon16.png"
+  },
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "static/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"]
+    }
+  ]
+}

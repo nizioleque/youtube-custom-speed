@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "noEmit": true
+  },
+  "ts-node": {
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  },
+  "include": ["src"],
+  "files": ["src/custom.d.ts"]
+}
