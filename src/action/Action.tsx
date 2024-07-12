@@ -1,3 +1,5 @@
+import Section from "./components/Section";
+
 function Action() {
   return (
     <>
@@ -43,13 +45,13 @@ function Action() {
         </p>
       </div>
 
-      <div>
-        <h2>Speed list</h2>
-        <p className="tip-h2">
-          Click a speed value to remove it
-          <br />
-          Enter a new value and click Enter to add it
-        </p>
+      <Section
+        title="Speed list"
+        tips={[
+          "Click a speed value to remove it",
+          "Enter a new value and click Enter to add it",
+        ]}
+      >
         <div id="speed-menu">{/* speed options added dynamically */}</div>
 
         <div id="add-speed">
@@ -66,11 +68,9 @@ function Action() {
         <p id="add-error">
           The value is not in the supported playback range (0.0625x - 16x)
         </p>
-      </div>
+      </Section>
 
-      <div>
-        <h2>Default speed</h2>
-        <p className="tip-h2">When opening a new YouTube tab</p>
+      <Section title="Default speed" tips={["When opening a new YouTube tab"]}>
         <label>
           <input type="radio" name="newtab" value="normal" />
           Set to normal speed (1x)
@@ -96,11 +96,12 @@ function Action() {
           <input type="radio" name="newtab" value="do-nothing" />
           Do nothing (use YouTube&apos;s default behavior)
         </label>
-      </div>
+      </Section>
 
-      <div>
-        <h2>Next video speed</h2>
-        <p className="tip-h2">When loading a new video in the same tab</p>
+      <Section
+        title="Next video speed"
+        tips={["When loading a new video in the same tab"]}
+      >
         <label>
           <input type="radio" name="newvid" value="restore" />
           Restore to default speed
@@ -113,11 +114,12 @@ function Action() {
           <input type="radio" name="newvid" value="do-nothing" />
           Do nothing (use YouTube&apos;s default behavior)
         </label>
-      </div>
+      </Section>
 
-      <div>
-        <h2>Sync between tabs</h2>
-        <p className="tip-h2">When changing speed in one YouTube tab</p>
+      <Section
+        title="Sync between tabs"
+        tips={["When changing speed in one YouTube tab"]}
+      >
         <label>
           <input type="radio" name="tabsync" value="nosync" />
           Only apply the change in current tab
@@ -126,7 +128,7 @@ function Action() {
           <input type="radio" name="tabsync" value="sync" />
           Apply the same speed in all open YouTube tabs
         </label>
-      </div>
+      </Section>
     </>
   );
 }
