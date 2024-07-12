@@ -1,3 +1,4 @@
+import RadioOptions from "./components/RadioOptions";
 import Section from "./components/Section";
 
 function Action() {
@@ -71,63 +72,61 @@ function Action() {
       </Section>
 
       <Section title="Default speed" tips={["When opening a new YouTube tab"]}>
-        <label>
-          <input type="radio" name="newtab" value="normal" />
-          Set to normal speed (1x)
-        </label>
-        <label>
-          <input type="radio" name="newtab" value="custom" />
-          Set to custom speed
-          <input
-            className="input-custom"
-            type="number"
-            name="customSpeed"
-            step="0.1"
-            min="0.0625"
-            max="16"
-            data-setting-name="newtab"
-          />
-        </label>
-        <label>
-          <input type="radio" name="newtab" value="last" />
-          Restore last used speed
-        </label>
-        <label>
-          <input type="radio" name="newtab" value="do-nothing" />
-          Do nothing (use YouTube&apos;s default behavior)
-        </label>
+        <RadioOptions
+          storageKey="newtab"
+          options={[
+            { label: "Set to normal speed (1x)", value: "normal" },
+            {
+              label: "Set to custom speed",
+              value: "custom",
+              custom: true,
+              customProps: {
+                type: "number",
+                step: "0.1",
+                min: "0.0625",
+                max: "16",
+              },
+            },
+            { label: "Restore last used speed", value: "last" },
+            {
+              label: "Do nothing (use YouTube's default behavior)",
+              value: "do-nothing",
+            },
+          ]}
+        />
       </Section>
 
       <Section
         title="Next video speed"
         tips={["When loading a new video in the same tab"]}
       >
-        <label>
-          <input type="radio" name="newvid" value="restore" />
-          Restore to default speed
-        </label>
-        <label>
-          <input type="radio" name="newvid" value="keep" />
-          Keep the same speed
-        </label>
-        <label>
-          <input type="radio" name="newvid" value="do-nothing" />
-          Do nothing (use YouTube&apos;s default behavior)
-        </label>
+        <RadioOptions
+          storageKey="newvid"
+          options={[
+            { label: "Restore to default speed", value: "restore" },
+            { label: "Keep the same speed", value: "keep" },
+            {
+              label: "Do nothing (use YouTube's default behavior)",
+              value: "do-nothing",
+            },
+          ]}
+        />
       </Section>
 
       <Section
         title="Sync between tabs"
         tips={["When changing speed in one YouTube tab"]}
       >
-        <label>
-          <input type="radio" name="tabsync" value="nosync" />
-          Only apply the change in current tab
-        </label>
-        <label>
-          <input type="radio" name="tabsync" value="sync" />
-          Apply the same speed in all open YouTube tabs
-        </label>
+        <RadioOptions
+          storageKey="tabsync"
+          options={[
+            { label: "Only apply the change in current tab", value: "nosync" },
+            {
+              label: "Apply the same speed in all open YouTube tabs",
+              value: "sync",
+            },
+          ]}
+        />
       </Section>
     </>
   );
