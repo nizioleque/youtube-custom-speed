@@ -1,13 +1,12 @@
-import { Box, CssBaseline, ThemeProvider, Typography } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import theme from "../theme";
+import Action from "./Action";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ width: 300, padding: 2 }}>
-        <Typography>Hello World from browser action!</Typography>
-      </Box>
+      <Action />
     </ThemeProvider>
   );
 }
