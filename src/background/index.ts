@@ -1,3 +1,5 @@
+// TODO use Promise Chrome API
+
 // this runs when the extension is first installed and loads the settings from synchronized storage (or sets the default values)
 chrome.runtime.onInstalled.addListener((details) => {
   // TODO remove

@@ -3,12 +3,19 @@ import type { RadioOptionData } from "../../types";
 interface RadioOptionProps {
   storageKey: string;
   option: RadioOptionData;
+  checked: boolean;
+  onChange: () => void;
 }
 
-function RadioOption({ storageKey, option }: RadioOptionProps) {
+function RadioOption({
+  storageKey,
+  option,
+  checked,
+  onChange,
+}: RadioOptionProps) {
   return (
     <label>
-      <input type="radio" name={storageKey} value={option.value} />
+      <input type="radio" checked={checked} onChange={onChange} />
       {option.label}
       {option.custom && (
         <input
