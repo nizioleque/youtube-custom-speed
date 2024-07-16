@@ -22,6 +22,7 @@ function RadioOption({
       {option.custom && (
         <input
           value={customValue}
+          onFocus={onChange}
           onChange={(event) =>
             // TODO support integers? (eg. add `transform` prop)
             onChangeCustom(parseFloat(event.currentTarget.value))

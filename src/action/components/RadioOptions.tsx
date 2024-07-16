@@ -14,8 +14,6 @@ function RadioOptions({ options, storageKey }: OptionsProps) {
       customValue: 0,
     });
 
-  // TODO set option when custom input is focused
-
   return options.map((option) => (
     <RadioOption
       key={option.value}
