@@ -1,17 +1,19 @@
 import type { RadioOptionData } from "../../types";
 
 interface RadioOptionProps {
-  storageKey: string;
   option: RadioOptionData;
   checked: boolean;
+  customValue: number;
   onChange: () => void;
+  onChangeCustom: (value: number) => void;
 }
 
 function RadioOption({
-  storageKey,
   option,
   checked,
+  customValue,
   onChange,
+  onChangeCustom,
 }: RadioOptionProps) {
   return (
     <label>
@@ -19,10 +21,11 @@ function RadioOption({
       {option.label}
       {option.custom && (
         <input
-          className="input-custom"
-          // TODO handle saving custom value
-          // name="customSpeed"
-          data-setting-name={storageKey}
+          value={customValue}
+          onChange={(event) =>
+            // TODO support integers? (eg. add `transform` prop)
+            onChangeCustom(parseFloat(event.currentTarget.value))
+          }
           {...option.customProps}
         />
       )}

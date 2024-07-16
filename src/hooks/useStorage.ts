@@ -13,6 +13,7 @@ export function useStorage<T>(
 ): [T, SetValue<T>] {
   const [storedValue, setStoredValue] = useState<T>(initialValue);
 
+  // TODO switch to useLayoutEffect?
   useEffect(() => {
     readStorage<T>(key, area).then((response) => {
       if (response !== undefined) setStoredValue(response);

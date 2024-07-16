@@ -1,5 +1,5 @@
 import { useStorage } from "../../hooks/useStorage";
-import { RadioOptionData } from "../../types";
+import { RadioOptionData, SettingsOption } from "../../types";
 import RadioOption from "./RadioOption";
 
 interface OptionsProps {
@@ -8,20 +8,26 @@ interface OptionsProps {
 }
 
 function RadioOptions({ options, storageKey }: OptionsProps) {
-  const [value, setValue] = useStorage<string | undefined>(
-    storageKey,
-    undefined
-  );
+  const [{ option: selectedOption, customValue }, setValue] =
+    useStorage<SettingsOption>(storageKey, {
+      option: "",
+      customValue: 0,
+    });
 
   // TODO set option when custom input is focused
 
   return options.map((option) => (
     <RadioOption
       key={option.value}
-      storageKey={storageKey}
       option={option}
-      checked={option.value === value}
-      onChange={() => setValue(option.value)}
+      checked={option.value === selectedOption}
+      customValue={customValue}
+      onChange={() =>
+        setValue((current) => ({ ...current, option: option.value }))
+      }
+      onChangeCustom={(customValue) =>
+        setValue((current) => ({ ...current, customValue }))
+      }
     />
   ));
 }

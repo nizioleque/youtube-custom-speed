@@ -6,3 +6,8 @@ export interface RadioOptionData {
   custom?: boolean;
   customProps?: ComponentProps<"input">;
 }
+
+export interface SettingsOption {
+  option: string;
+  customValue: number;
+}

@@ -7,9 +7,12 @@ chrome.runtime.onInstalled.addListener((details) => {
     url: chrome.runtime.getURL("static/welcome.html"),
   });
 
+  // TODO migrate settings to new schema on update
+
   if (details.reason === "install" || details.reason === "update") {
     // configure default memory
     const defaultSettings = {
+      // TODO adjust to new storage schema
       currentSpeed: 1,
       speedList: [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 3, 5, 16],
       newtab: "normal",
