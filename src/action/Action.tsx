@@ -8,17 +8,7 @@ function Action() {
         <h1 data-string="extName"></h1>
       </header>
 
-      <div id="error" className="info">
-        <p>
-          An error occurred! Please refresh the page and try again in a few
-          minutes.
-          <br />
-          If the error persists, please contact me at nizioleque@gmail.com
-          including the error message shown below
-        </p>
-        <p>Error message:</p>
-        <p id="error-msg"></p>
-      </div>
+      {/* TODO add error handling */}
 
       <div id="welcome-short">
         <a
@@ -34,16 +24,6 @@ function Action() {
         <a className="bugReportURL" target="_blank">
           <button>📧 Report a bug</button>
         </a>
-      </div>
-
-      <div style={{ display: "none" }}>
-        <label id="advanced">
-          <input type="checkbox" name="advanced" />
-          Show advanced settings
-        </label>
-        <p className="tip">
-          Don&apos;t be afraid! They&apos;re not that advanced
-        </p>
       </div>
 
       <Section
