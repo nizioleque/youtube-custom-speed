@@ -1,3 +1,4 @@
+import { RadioGroup } from "@mui/material";
 import { useStorage } from "../../../hooks/useStorage";
 import { RadioOptionData, SettingsOption } from "../../../types";
 import RadioOption from "./RadioOption";
@@ -14,20 +15,24 @@ function RadioOptions({ options, storageKey }: OptionsProps) {
       customValue: 0,
     });
 
-  return options.map((option) => (
-    <RadioOption
-      key={option.value}
-      option={option}
-      checked={option.value === selectedOption}
-      customValue={customValue}
-      onChange={() =>
-        setValue((current) => ({ ...current, option: option.value }))
-      }
-      onChangeCustom={(customValue) =>
-        setValue((current) => ({ ...current, customValue }))
-      }
-    />
-  ));
+  return (
+    <RadioGroup>
+      {options.map((option) => (
+        <RadioOption
+          key={option.value}
+          option={option}
+          checked={option.value === selectedOption}
+          customValue={customValue}
+          onChange={() =>
+            setValue((current) => ({ ...current, option: option.value }))
+          }
+          onChangeCustom={(customValue) =>
+            setValue((current) => ({ ...current, customValue }))
+          }
+        />
+      ))}
+    </RadioGroup>
+  );
 }
 
 export default RadioOptions;

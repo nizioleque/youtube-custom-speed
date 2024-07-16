@@ -1,3 +1,4 @@
+import { Box, FormControlLabel, Radio, TextField } from "@mui/material";
 import type { RadioOptionData } from "../../../types";
 
 interface RadioOptionProps {
@@ -16,21 +17,26 @@ function RadioOption({
   onChangeCustom,
 }: RadioOptionProps) {
   return (
-    <label>
-      <input type="radio" checked={checked} onChange={onChange} />
-      {option.label}
-      {option.custom && (
-        <input
-          value={customValue}
-          onFocus={onChange}
-          onChange={(event) =>
-            // TODO support integers? (eg. add `transform` prop)
-            onChangeCustom(parseFloat(event.currentTarget.value))
-          }
-          {...option.customProps}
-        />
-      )}
-    </label>
+    <FormControlLabel
+      control={<Radio checked={checked} onChange={onChange} />}
+      label={
+        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+          {option.label}
+          {option.custom && (
+            <TextField
+              value={customValue}
+              onFocus={onChange}
+              size="small"
+              onChange={(event) =>
+                // TODO support integers? (eg. add `transform` prop)
+                onChangeCustom(parseFloat(event.currentTarget.value))
+              }
+              inputProps={option.customProps}
+            />
+          )}
+        </Box>
+      }
+    />
   );
 }
 
