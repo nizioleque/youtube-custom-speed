@@ -1,9 +1,5 @@
 function Title() {
-  return (
-    <header>
-      <h1 data-string="extName"></h1>
-    </header>
-  );
+  return <h1>{chrome.i18n.getMessage("extName")}</h1>;
 }
 
 export default Title;
