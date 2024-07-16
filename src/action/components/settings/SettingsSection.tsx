@@ -7,7 +7,7 @@ interface SectionProps {
   children: ReactNode;
 }
 
-function Section({ title, tips = [], children }: SectionProps) {
+function SettingsSection({ title, tips = [], children }: SectionProps) {
   return (
     <div>
       <h2>{title}</h2>
@@ -21,4 +21,4 @@ function Section({ title, tips = [], children }: SectionProps) {
   );
 }
 
-export default Section;
+export default SettingsSection;

@@ -1,5 +1,5 @@
-import { useStorage } from "../../hooks/useStorage";
-import { RadioOptionData, SettingsOption } from "../../types";
+import { useStorage } from "../../../hooks/useStorage";
+import { RadioOptionData, SettingsOption } from "../../../types";
 import RadioOption from "./RadioOption";
 
 interface OptionsProps {

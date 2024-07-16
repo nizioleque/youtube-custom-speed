@@ -1,4 +1,4 @@
-import type { RadioOptionData } from "../../types";
+import type { RadioOptionData } from "../../../types";
 
 interface RadioOptionProps {
   option: RadioOptionData;
