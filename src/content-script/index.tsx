@@ -1,5 +1,7 @@
 import createCache from "@emotion/cache";
+import { CacheProvider } from "@emotion/react";
 import ReactDOM from "react-dom/client";
+import ThemeProvider from "../components/ThemeProvider";
 import App from "./App";
 
 function injectFont() {
@@ -29,7 +31,13 @@ function injectReact() {
   const cache = createCache({ key: "mui", container: rootElement });
 
   const reactRoot = ReactDOM.createRoot(rootElement);
-  reactRoot.render(<App cache={cache} />);
+  reactRoot.render(
+    <CacheProvider value={cache}>
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
+    </CacheProvider>
+  );
 }
 
 injectFont();

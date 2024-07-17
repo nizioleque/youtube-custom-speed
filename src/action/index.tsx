@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom/client";
+import ThemeProvider from "../components/ThemeProvider";
 import App from "./App";
 
 function injectReact() {
@@ -7,7 +8,11 @@ function injectReact() {
 
   const reactRoot = ReactDOM.createRoot(root);
 
-  reactRoot.render(<App />);
+  reactRoot.render(
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
+  );
 }
 
 injectReact();
