@@ -7,6 +7,19 @@ import { deepmerge } from "@mui/utils";
 
 const theme: ThemeOptions = {
   typography: {
+    fontFamily: [
+      "-apple-system",
+      "BlinkMacSystemFont",
+      '"Segoe UI"',
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+
     // change default font size to 14px
     fontSize: 14 * (14 / 16),
 

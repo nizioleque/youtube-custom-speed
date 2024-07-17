@@ -4,14 +4,6 @@ import ReactDOM from "react-dom/client";
 import ThemeProvider from "../components/ThemeProvider";
 import App from "./App";
 
-function injectFont() {
-  // Example of injecting a font in the content script
-  const style = document.createElement("style");
-  style.innerHTML =
-    "@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap')";
-  document.head.appendChild(style);
-}
-
 function injectReact() {
   const container = document.createElement("div");
 
@@ -40,5 +32,4 @@ function injectReact() {
   );
 }
 
-injectFont();
 injectReact();
