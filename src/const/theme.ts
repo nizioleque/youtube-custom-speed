@@ -7,6 +7,9 @@ import { deepmerge } from "@mui/utils";
 
 const theme: ThemeOptions = {
   typography: {
+    // change default font size to 14px
+    fontSize: 14 * (14 / 16),
+
     // necessary to ensure correct font size regardless of the page's HTML font size
     htmlFontSize: parseInt(getComputedStyle(document.documentElement).fontSize),
   },
