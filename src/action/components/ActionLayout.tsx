@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Stack } from "@mui/material";
 import { ReactNode } from "react";
 import Header from "./header/Header";
 
@@ -8,14 +8,15 @@ interface ActionLayoutProps {
 
 function ActionLayout({ children }: ActionLayoutProps) {
   return (
-    <Box
+    <Stack
       sx={{
         minWidth: 420,
+        gap: 3,
       }}
     >
       <Header />
-      {children}
-    </Box>
+      <div>{children}</div>
+    </Stack>
   );
 }
 

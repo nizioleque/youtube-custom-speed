@@ -1,9 +1,10 @@
-import RadioOptions from "./components/settings/RadioOptions";
-import SettingsSection from "./components/settings/SettingsSection";
+import RadioOptions from "./RadioOptions";
+import SettingsLayout from "./SettingsLayout";
+import SettingsSection from "./SettingsSection";
 
 function Settings() {
   return (
-    <>
+    <SettingsLayout>
       <SettingsSection
         title="Speed list"
         tips={[
@@ -89,7 +90,7 @@ function Settings() {
           ]}
         />
       </SettingsSection>
-    </>
+    </SettingsLayout>
   );
 }
 

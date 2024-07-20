@@ -1,5 +1,5 @@
 import ActionLayout from "./components/ActionLayout";
-import Settings from "./Settings";
+import Settings from "./components/settings/Settings";
 
 function Action() {
   return (

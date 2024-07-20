@@ -1,4 +1,4 @@
-import { Box, FormControlLabel, Radio, TextField } from "@mui/material";
+import { FormControlLabel, Radio, TextField, Typography } from "@mui/material";
 import type { RadioOptionData } from "../../../types";
 
 interface RadioOptionProps {
@@ -18,12 +18,28 @@ function RadioOption({
 }: RadioOptionProps) {
   return (
     <FormControlLabel
-      control={<Radio checked={checked} onChange={onChange} />}
+      sx={{
+        display: "grid",
+        gridTemplateAreas: '"radio label" ". field"',
+        gridTemplateColumns: "auto 1fr",
+        justifyItems: "start",
+      }}
+      control={
+        <Radio
+          checked={checked}
+          onChange={onChange}
+          sx={{ gridArea: "radio", paddingY: "6px" }}
+        />
+      }
+      disableTypography
       label={
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          {option.label}
+        <>
+          <Typography component="span" sx={{ gridArea: "label" }}>
+            {option.label}
+          </Typography>
           {option.custom && (
             <TextField
+              sx={{ gridArea: "field", marginBottom: 1 }}
               value={customValue}
               onFocus={onChange}
               size="small"
@@ -34,7 +50,7 @@ function RadioOption({
               inputProps={option.customProps}
             />
           )}
-        </Box>
+        </>
       }
     />
   );

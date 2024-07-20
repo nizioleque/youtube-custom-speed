@@ -5,10 +5,9 @@ const BottomBackgroundOffset = 2;
 function Title() {
   return (
     <Typography
-      component="h1"
+      variant="h1"
       sx={{
-        fontSize: "1.7rem",
-        fontWeight: 700,
+        color: "white",
         background:
           "linear-gradient(180deg, rgb(255 0 0 / 100%) 0%, rgb(255 0 0 / 20%) 75%, rgb(255 0 0 / 0%) 100%)",
         paddingY: 0.5,
