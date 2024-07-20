@@ -12,6 +12,10 @@ function HeaderButton(props: ButtonProps) {
       sx={combineSx(
         {
           borderRadius: 999,
+          color: "text.primary",
+          fontSize: "1rem",
+          borderWidth: "2px !important",
+          textTransform: "none",
         },
         props.sx
       )}

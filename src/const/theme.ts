@@ -40,6 +40,9 @@ const lightPalette: PaletteOptions = {
 
 const darkPalette: PaletteOptions = {
   mode: "dark",
+  background: {
+    default: "#2a2a2a",
+  },
 };
 
 const createTheme = (darkMode: boolean) =>

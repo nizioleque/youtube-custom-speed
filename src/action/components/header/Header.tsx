@@ -1,12 +1,13 @@
+import { Stack } from "@mui/material";
 import HeaderButtons from "./HeaderButtons";
 import Title from "./Title";
 
 function Header() {
   return (
-    <header>
+    <Stack component="header" sx={{ gap: 2 }}>
       <Title />
       <HeaderButtons />
-    </header>
+    </Stack>
   );
 }
 
