@@ -1,6 +1,7 @@
 import RadioOptions from "./RadioOptions";
 import SettingsLayout from "./SettingsLayout";
 import SettingsSection from "./SettingsSection";
+import SpeedList from "./SpeedList";
 
 function Settings() {
   return (
@@ -8,26 +9,11 @@ function Settings() {
       <SettingsSection
         title="Speed list"
         tips={[
-          "Click a speed value to remove it",
-          "Enter a new value and click Enter to add it",
+          "Click a value to remove it",
+          "Enter a new value and click Add to add it",
         ]}
       >
-        <div id="speed-menu">{/* speed options added dynamically */}</div>
-
-        <div id="add-speed">
-          <input
-            type="number"
-            placeholder="Add new..."
-            min="0.1"
-            max="16"
-            step="0.1"
-            id="speed-input"
-          />
-        </div>
-
-        <p id="add-error">
-          The value is not in the supported playback range (0.0625x - 16x)
-        </p>
+        <SpeedList />
       </SettingsSection>
 
       <SettingsSection
