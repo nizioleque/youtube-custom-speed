@@ -1,4 +1,4 @@
-import { RadioGroup } from "@mui/material";
+import { RadioGroup } from "@mui/joy";
 import { useStorage } from "../../../hooks/useStorage";
 import { RadioOptionData, SettingsOption } from "../../../types";
 import RadioOption from "./RadioOption";

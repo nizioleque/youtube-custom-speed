@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Stack } from "@mui/joy";
 import { ReactNode } from "react";
 import Header from "./header/Header";
 

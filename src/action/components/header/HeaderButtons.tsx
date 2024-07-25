@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Stack } from "@mui/joy";
 import { bugReportURL, reviewUrl, supportUrl } from "../../../const/urls";
 import HeaderButton from "./HeaderButton";
 

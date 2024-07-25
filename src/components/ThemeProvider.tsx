@@ -1,28 +1,20 @@
-import {
-  CssBaseline,
-  ThemeProvider as MuiThemeProvider,
-  useMediaQuery,
-} from "@mui/material";
-import React, { ReactNode } from "react";
-import createTheme from "../const/theme";
+import { CssBaseline, CssVarsProvider } from "@mui/joy";
+import { ReactNode } from "react";
+import theme from "../const/theme";
 
 interface ThemeProviderProps {
   children: ReactNode;
 }
 
+// TODO add dark mode
+// TODO check if `enableColorScheme` is necessary
+
 function ThemeProvider({ children }: ThemeProviderProps) {
-  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-
-  const theme = React.useMemo(
-    () => createTheme(prefersDarkMode),
-    [prefersDarkMode]
-  );
-
   return (
-    <MuiThemeProvider theme={theme}>
+    <CssVarsProvider theme={theme}>
       <CssBaseline enableColorScheme />
       {children}
-    </MuiThemeProvider>
+    </CssVarsProvider>
   );
 }
 

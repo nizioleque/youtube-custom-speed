@@ -1,6 +1,20 @@
-import { Box, Button, Chip, Stack, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Chip,
+  ChipDelete,
+  FormControl,
+  FormLabel,
+  Input,
+  Stack,
+} from "@mui/joy";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { useStorage } from "../../../hooks/useStorage";
+
+// TODO fix HTML (nested form elements?)
+// TODO add delete/add animation
+// TODO fix passing props (min max step type)
+// TODO clear text field after adding
 
 function SpeedList() {
   const [speedList, setSpeedList] = useStorage<number[]>("speedList", []);
@@ -34,16 +48,24 @@ function SpeedList() {
         {speedList.map((speed) => (
           <Chip
             key={speed}
-            label={`${speed}x`}
-            onDelete={() => handleDelete(speed)}
-          />
+            endDecorator={<ChipDelete onDelete={() => handleDelete(speed)} />}
+          >
+            {`${speed}x`}
+          </Chip>
         ))}
       </Box>
       <Box sx={{ display: "flex", gap: 1 }}>
-        <TextField
-          value={newValue ?? ""}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
+        <FormControl>
+          <FormLabel></FormLabel>
+
+          <Input
+            value={newValue ?? ""}
+            onChange={handleChange}
+            onKeyDown={handleKeyDown}
+          />
+        </FormControl>
+
+        {/* <TextField
           size="small"
           inputProps={{
             type: "number",
@@ -51,7 +73,7 @@ function SpeedList() {
             max: 16,
             step: 0.1,
           }}
-        />
+        /> */}
         <Button onClick={handleAdd}>Add</Button>
       </Box>
       {/* TODO add error handling */}

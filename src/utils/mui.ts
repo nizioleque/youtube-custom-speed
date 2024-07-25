@@ -1,7 +1,5 @@
-import { SxProps, Theme } from "@mui/material";
+import { SxProps } from "@mui/joy/styles/types";
 
-export function combineSx<T extends Theme>(
-  ...sx: (SxProps<T> | undefined)[]
-): SxProps<T> {
+export function combineSx(...sx: (SxProps | undefined)[]): SxProps {
   return sx.map((sx) => sx ?? null).flat();
 }

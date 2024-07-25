@@ -1,4 +1,4 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/joy";
 import { ReactNode } from "react";
 
 interface SectionProps {
@@ -8,12 +8,21 @@ interface SectionProps {
 }
 
 function SettingsSection({ title, tips = [], children }: SectionProps) {
+  // TODO adjust font styles
+
   return (
     <Stack sx={{ marginX: 2, gap: 1.5 }}>
-      <Typography variant="h2">{title}</Typography>
+      <Typography
+      // variant="h2"
+      >
+        {title}
+      </Typography>
       <div>
         {tips.map((tip) => (
-          <Typography key={tip} variant="body2">
+          <Typography
+            key={tip}
+            //  variant="body2"
+          >
             {tip}
           </Typography>
         ))}

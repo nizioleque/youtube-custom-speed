@@ -1,4 +1,4 @@
-import { Stack } from "@mui/material";
+import { Stack } from "@mui/joy";
 import HeaderButtons from "./HeaderButtons";
 import Title from "./Title";
 

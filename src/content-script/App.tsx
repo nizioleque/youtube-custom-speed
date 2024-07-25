@@ -1,10 +1,10 @@
-import { Paper, Typography } from "@mui/material";
+import { Sheet, Typography } from "@mui/joy";
 
 function App() {
   return (
-    <Paper sx={{ padding: 2 }}>
+    <Sheet sx={{ padding: 2 }}>
       <Typography>Hello World from content script!</Typography>
-    </Paper>
+    </Sheet>
   );
 }
 

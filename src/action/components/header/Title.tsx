@@ -1,11 +1,13 @@
-import { Typography } from "@mui/material";
+import { Typography } from "@mui/joy";
 
 const BottomBackgroundOffset = 2;
 
 function Title() {
+  // TODO adjust size
+
   return (
     <Typography
-      variant="h1"
+      // variant="h1"
       sx={{
         color: "white",
         background:

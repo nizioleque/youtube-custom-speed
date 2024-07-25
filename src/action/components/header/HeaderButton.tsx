@@ -1,12 +1,14 @@
-import { Button, ButtonProps } from "@mui/material";
+import { Button, ButtonProps } from "@mui/joy";
 import { combineSx } from "../../../utils/mui";
 
-function HeaderButton(props: ButtonProps) {
+function HeaderButton(props: ButtonProps<"a">) {
+  // TODO adjust size, color
+
   return (
     <Button
       component="a"
       variant="outlined"
-      size="small"
+      // size="small"
       target="_blank"
       {...props}
       sx={combineSx(
