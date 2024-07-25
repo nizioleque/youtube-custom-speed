@@ -15,6 +15,7 @@ import { useStorage } from "../../../hooks/useStorage";
 // TODO add delete/add animation
 // TODO fix passing props (min max step type)
 // TODO clear text field after adding
+// TODO fix NaN when typing a non-number
 
 function SpeedList() {
   const [speedList, setSpeedList] = useStorage<number[]>("speedList", []);
@@ -48,6 +49,7 @@ function SpeedList() {
         {speedList.map((speed) => (
           <Chip
             key={speed}
+            size="lg"
             endDecorator={<ChipDelete onDelete={() => handleDelete(speed)} />}
           >
             {`${speed}x`}

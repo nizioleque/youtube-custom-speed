@@ -3,11 +3,9 @@ import { Typography } from "@mui/joy";
 const BottomBackgroundOffset = 2;
 
 function Title() {
-  // TODO adjust size
-
   return (
     <Typography
-      // variant="h1"
+      level="h2"
       sx={{
         color: "white",
         background:
@@ -16,6 +14,7 @@ function Title() {
         paddingBottom: 0.5 + BottomBackgroundOffset,
         marginBottom: -BottomBackgroundOffset,
         textAlign: "center",
+        // TODO improve shadow
         textShadow: "0 0 4px rgba(0,0,0,0.8)",
       }}
     >

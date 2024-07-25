@@ -29,6 +29,8 @@ const commonPalette = {
     800: "#991b1b",
     900: "#7f1d1d",
     950: "#450a0a",
+
+    softColor: "var(--joy-palette-primary-100)",
   },
 };
 
@@ -44,6 +46,17 @@ const theme = extendTheme({
   fontFamily: {
     display: fontFamily,
     body: fontFamily,
+  },
+  components: {
+    JoyTypography: {
+      defaultProps: {
+        levelMapping: {
+          h2: "h1",
+          h3: "h2",
+          h4: "h3",
+        },
+      },
+    },
   },
 });
 

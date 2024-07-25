@@ -8,23 +8,12 @@ interface SectionProps {
 }
 
 function SettingsSection({ title, tips = [], children }: SectionProps) {
-  // TODO adjust font styles
-
   return (
     <Stack sx={{ marginX: 2, gap: 1.5 }}>
-      <Typography
-      // variant="h2"
-      >
-        {title}
-      </Typography>
+      <Typography level="h3">{title}</Typography>
       <div>
         {tips.map((tip) => (
-          <Typography
-            key={tip}
-            //  variant="body2"
-          >
-            {tip}
-          </Typography>
+          <Typography key={tip}>{tip}</Typography>
         ))}
       </div>
       {children}
