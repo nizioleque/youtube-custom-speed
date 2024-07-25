@@ -6,13 +6,10 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-// TODO add dark mode
-// TODO check if `enableColorScheme` is necessary
-
 function ThemeProvider({ children }: ThemeProviderProps) {
   return (
-    <CssVarsProvider theme={theme}>
-      <CssBaseline enableColorScheme />
+    <CssVarsProvider defaultMode="system" theme={theme}>
+      <CssBaseline />
       {children}
     </CssVarsProvider>
   );
