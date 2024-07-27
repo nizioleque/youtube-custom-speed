@@ -9,13 +9,21 @@ interface SectionProps {
 
 function SettingsSection({ title, tips = [], children }: SectionProps) {
   return (
-    <Stack sx={{ marginX: 2, gap: 1.5 }}>
-      <Typography level="h3">{title}</Typography>
-      <div>
+    <Stack
+      sx={{
+        // TODO move higher in the tree
+        marginX: 2,
+        gap: 2,
+      }}
+    >
+      <Stack>
+        <Typography level="h3" gutterBottom>
+          {title}
+        </Typography>
         {tips.map((tip) => (
           <Typography key={tip}>{tip}</Typography>
         ))}
-      </div>
+      </Stack>
       {children}
     </Stack>
   );

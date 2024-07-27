@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, Input, Radio, Typography } from "@mui/joy";
+import { FormControl, Input, Radio, Sheet } from "@mui/joy";
 import type { RadioOptionData } from "../../../types";
 
 interface RadioOptionProps {
@@ -20,41 +20,68 @@ function RadioOption({
   // TODO center input
   // TODO fix off-center dot inside radio
   // TODO fix passing props (min max step type)
+  // TODO add hover/select transition
 
   return (
-    <FormControl
+    <Sheet
       sx={{
-        display: "grid",
-        gridTemplateAreas: '"radio label" ". field"',
-        gridTemplateColumns: "auto 1fr",
-        justifyItems: "start",
+        padding: 2,
+        borderRadius: "md",
+        boxShadow: "sm",
       }}
     >
-      <FormLabel>
-        <Typography component="span" sx={{ gridArea: "label" }}>
-          {option.label}
-        </Typography>
-        {option.custom && (
-          <FormControl sx={{ gridArea: "field", marginBottom: 1 }}>
-            <Input
-              value={customValue}
-              onFocus={onChange}
-              onChange={(event) =>
-                // TODO support integers? (eg. add `transform` prop)
-                onChangeCustom(parseFloat(event.currentTarget.value))
-              }
-              // inputProps={option.customProps}
-            />
-          </FormControl>
-        )}
-      </FormLabel>
-
       <Radio
         checked={checked}
         onChange={onChange}
-        sx={{ gridArea: "radio", paddingY: "6px" }}
+        overlay
+        disableIcon
+        label={
+          <>
+            {option.label}
+            {option.custom && (
+              <FormControl>
+                <Input
+                  variant="soft"
+                  sx={{ pointerEvents: "all" }}
+                  value={customValue}
+                  onFocus={onChange}
+                  onChange={(event) =>
+                    // TODO support integers? (eg. add `transform` prop)
+                    onChangeCustom(parseFloat(event.currentTarget.value))
+                  }
+                  // inputProps={option.customProps}
+                />
+              </FormControl>
+            )}
+          </>
+        }
+        slotProps={{
+          label: ({ checked }) => ({
+            sx: {
+              fontWeight: "lg",
+              fontSize: "md",
+              color: checked ? "text.primary" : "text.secondary",
+
+              display: "flex",
+              flexDirection: "row",
+              gap: 1,
+              alignItems: "baseline",
+            },
+          }),
+          action: ({ checked }) => ({
+            sx: (theme) => ({
+              ...(checked && {
+                "--variant-borderWidth": "2px",
+                "&&": {
+                  // && to increase the specificity to win the base :hover styles
+                  borderColor: theme.vars.palette.primary[500],
+                },
+              }),
+            }),
+          }),
+        }}
       />
-    </FormControl>
+    </Sheet>
   );
 }
 
