@@ -25,9 +25,11 @@ function RadioOption({
   return (
     <Sheet
       sx={{
-        padding: 2,
+        paddingX: 2,
+        paddingY: 1,
         borderRadius: "md",
         boxShadow: "sm",
+        "--Input-minHeight": "2.25rem",
       }}
     >
       <Radio
@@ -65,7 +67,8 @@ function RadioOption({
               display: "flex",
               flexDirection: "row",
               gap: 1,
-              alignItems: "baseline",
+              alignItems: option.custom ? "baseline" : "center",
+              minHeight: "var(--Input-minHeight)",
             },
           }),
           action: ({ checked }) => ({

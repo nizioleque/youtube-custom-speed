@@ -36,7 +36,11 @@ const commonPalette = {
 
 const lightPalette = {};
 
-const darkPalette = {};
+const darkPalette = {
+  background: {
+    body: "#202124",
+  },
+};
 
 const theme = extendTheme({
   colorSchemes: {

@@ -45,12 +45,32 @@ function SpeedList() {
 
   return (
     <Stack sx={{ gap: 2 }}>
-      <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          rowGap: 1.5,
+          columnGap: 2,
+          justifyContent: "space-between",
+          "& > :last-child": {
+            marginRight: "auto",
+          },
+        }}
+      >
         {speedList.map((speed) => (
           <Chip
             key={speed}
             size="lg"
-            endDecorator={<ChipDelete onDelete={() => handleDelete(speed)} />}
+            sx={{
+              backgroundColor: "background.surface",
+              "--Chip-minHeight": "2.25rem",
+            }}
+            endDecorator={
+              <ChipDelete
+                onDelete={() => handleDelete(speed)}
+                sx={{ background: "none" }}
+              />
+            }
           >
             {`${speed}x`}
           </Chip>
