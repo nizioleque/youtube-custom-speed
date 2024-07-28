@@ -59,10 +59,11 @@ function SpeedList() {
         {speedList.map((speed) => (
           <Chip
             key={speed}
+            variant="outlined"
             size="lg"
             sx={{
               backgroundColor: "background.surface",
-              "--Chip-minHeight": "2.25rem",
+              gap: 1,
             }}
             endDecorator={
               <ChipDelete
@@ -81,9 +82,6 @@ function SpeedList() {
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           endDecorator={<Button onClick={handleAdd}>Add</Button>}
-          sx={{
-            "--Input-decoratorChildHeight": "22px",
-          }}
         />
       </FormControl>
 

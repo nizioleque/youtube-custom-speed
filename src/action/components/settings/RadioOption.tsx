@@ -61,7 +61,6 @@ function RadioOption({
           label: ({ checked }) => ({
             sx: {
               fontWeight: "lg",
-              fontSize: "md",
               color: checked ? "text.primary" : "text.secondary",
 
               display: "flex",

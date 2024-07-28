@@ -43,6 +43,17 @@ const darkPalette = {
   },
 };
 
+const fontSizeOriginal = {
+  xs: 0.75,
+  sm: 0.875,
+  md: 1,
+  lg: 1.125,
+  xl: 1.25,
+  xl2: 1.5,
+  xl3: 1.875,
+  xl4: 2.25,
+};
+
 const theme = extendTheme({
   colorSchemes: {
     light: { palette: deepmerge(commonPalette, lightPalette) },
@@ -52,6 +63,12 @@ const theme = extendTheme({
     display: fontFamily,
     body: fontFamily,
   },
+  fontSize: Object.fromEntries(
+    Object.entries(fontSizeOriginal).map(([key, value]) => [
+      key,
+      `${(value * 14) / 16}rem`,
+    ])
+  ),
   components: {
     JoyTypography: {
       defaultProps: {
