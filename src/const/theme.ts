@@ -37,11 +37,7 @@ const commonPalette = {
 
 const lightPalette = {};
 
-const darkPalette = {
-  background: {
-    body: "#202124",
-  },
-};
+const darkPalette = {};
 
 const fontSizeOriginal = {
   xs: 0.75,

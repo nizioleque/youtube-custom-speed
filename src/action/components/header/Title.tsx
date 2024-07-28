@@ -1,25 +1,30 @@
-import { Typography } from "@mui/joy";
-
-const BottomBackgroundOffset = 2;
+import { Sheet, Typography } from "@mui/joy";
 
 function Title() {
   return (
-    <Typography
-      level="h2"
+    <Sheet
+      variant="soft"
       sx={{
-        color: "white",
-        background:
-          "linear-gradient(180deg, rgb(255 0 0 / 100%) 0%, rgb(255 0 0 / 20%) 75%, rgb(255 0 0 / 0%) 100%)",
-        paddingY: 0.5,
-        paddingBottom: 0.5 + BottomBackgroundOffset,
-        marginBottom: -BottomBackgroundOffset,
-        textAlign: "center",
-        // TODO improve shadow
-        textShadow: "0 0 4px rgba(0,0,0,0.8)",
+        padding: 2,
+        borderRadius: "lg",
+        borderBottomLeftRadius: 0,
+        borderBottomRightRadius: 0,
+        position: "relative",
+        overflow: "hidden",
+        gridArea: "title",
       }}
     >
-      {chrome.i18n.getMessage("extName")}
-    </Typography>
+      <Typography
+        level="h2"
+        sx={{
+          fontWeight: "md",
+          zIndex: 1,
+          lineHeight: 1,
+        }}
+      >
+        {chrome.i18n.getMessage("extName")}
+      </Typography>
+    </Sheet>
   );
 }
 

@@ -12,6 +12,10 @@ function ActionLayout({ children }: ActionLayoutProps) {
       sx={{
         minWidth: 420,
         gap: 3,
+        paddingY: 2,
+        "& > *": {
+          marginX: 2,
+        },
       }}
     >
       <Header />

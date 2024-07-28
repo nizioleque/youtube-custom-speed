@@ -1,8 +1,35 @@
-import { Button, ButtonProps } from "@mui/joy";
+import { Button } from "@mui/joy";
+import { ReactNode } from "react";
 
-function HeaderButton(props: ButtonProps<"a">) {
+interface HeaderButtonProps {
+  href: string;
+  children: ReactNode;
+}
+
+function HeaderButton({ href, children }: HeaderButtonProps) {
   return (
-    <Button component="a" variant="soft" size="sm" target="_blank" {...props} />
+    <Button
+      component="a"
+      href={href}
+      variant="soft"
+      color="neutral"
+      size="sm"
+      target="_blank"
+      sx={(theme) => ({
+        flexDirection: "row",
+        justifyContent: "center",
+        flex: 1,
+        borderRadius: 0,
+        ":nth-child(2)": {
+          borderBottomLeftRadius: theme.radius.lg,
+        },
+        ":nth-child(4)": {
+          borderBottomRightRadius: theme.radius.lg,
+        },
+      })}
+    >
+      {children}
+    </Button>
   );
 }
 
