@@ -5,6 +5,9 @@ import ThemeProvider from "../components/ThemeProvider";
 import App from "./App";
 
 function injectReact() {
+  // TODO remove & fix lagging in MUI documentation
+  return;
+
   const container = document.createElement("div");
 
   // Example of injecting and styling the React root

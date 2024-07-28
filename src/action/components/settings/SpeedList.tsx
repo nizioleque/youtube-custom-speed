@@ -4,7 +4,6 @@ import {
   Chip,
   ChipDelete,
   FormControl,
-  FormLabel,
   Input,
   Stack,
 } from "@mui/joy";
@@ -76,18 +75,19 @@ function SpeedList() {
           </Chip>
         ))}
       </Box>
-      <Box sx={{ display: "flex", gap: 1 }}>
-        <FormControl>
-          <FormLabel></FormLabel>
+      <FormControl sx={{ alignSelf: "flex-start" }}>
+        <Input
+          value={newValue ?? ""}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          endDecorator={<Button onClick={handleAdd}>Add</Button>}
+          sx={{
+            "--Input-decoratorChildHeight": "22px",
+          }}
+        />
+      </FormControl>
 
-          <Input
-            value={newValue ?? ""}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-          />
-        </FormControl>
-
-        {/* <TextField
+      {/* <TextField
           size="small"
           inputProps={{
             type: "number",
@@ -96,8 +96,6 @@ function SpeedList() {
             step: 0.1,
           }}
         /> */}
-        <Button onClick={handleAdd}>Add</Button>
-      </Box>
       {/* TODO add error handling */}
       {/* <p id="add-error">
         The value is not in the supported playback range (0.0625x - 16x)

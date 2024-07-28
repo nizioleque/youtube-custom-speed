@@ -30,6 +30,7 @@ const commonPalette = {
     900: "#7f1d1d",
     950: "#450a0a",
 
+    // TODO fix in light mode
     softColor: "var(--joy-palette-primary-100)",
   },
 };
