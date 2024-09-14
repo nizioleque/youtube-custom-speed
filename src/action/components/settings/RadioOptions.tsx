@@ -16,7 +16,7 @@ function RadioOptions({ options, storageKey }: OptionsProps) {
     });
 
   return (
-    <RadioGroup sx={{ gap: 1.5, padding: "1px" }}>
+    <RadioGroup>
       {options.map((option) => (
         <RadioOption
           key={option.value}
