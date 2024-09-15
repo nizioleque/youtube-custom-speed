@@ -6,13 +6,7 @@ import SpeedList from "./SpeedList";
 function Settings() {
   return (
     <SettingsLayout>
-      <SettingsSection
-        title="Speed list"
-        tips={[
-          "Click a value to remove it",
-          "Enter a new value and click Add to add it",
-        ]}
-      >
+      <SettingsSection title="Speed list" tips={["Customize speed values"]}>
         <SpeedList />
       </SettingsSection>
 
