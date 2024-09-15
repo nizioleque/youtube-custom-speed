@@ -10,21 +10,21 @@ import {
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { useStorage } from "../../../hooks/useStorage";
 
-// TODO fix HTML (nested form elements?)
-// TODO add delete/add animation
-// TODO fix passing props (min max step type)
-// TODO clear text field after adding
-// TODO fix NaN when typing a non-number
-
 function SpeedList() {
   const [speedList, setSpeedList] = useStorage<number[]>("speedList", []);
-  const [newValue, setNewValue] = useState<number | undefined>();
+  const [newValue, setNewValue] = useState<string>("");
 
   const handleAdd = () => {
+    const valueParsed = parseFloat(newValue.replace(",", "."));
+    if (isNaN(valueParsed)) return;
+
     setSpeedList((current) => {
-      if (newValue === undefined || current.includes(newValue)) return current;
-      return [...current, newValue].toSorted((a, b) => a - b);
+      if (current.includes(valueParsed)) return current;
+      // TODO show message if value already exists
+      // TODO show message if value is out of range
+      return [...current, valueParsed].toSorted((a, b) => a - b);
     });
+    setNewValue("");
   };
 
   const handleDelete = (value: number) => {
@@ -33,11 +33,11 @@ function SpeedList() {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
-
-    if (value === "") setNewValue(undefined);
-    else setNewValue(parseFloat(value));
+    const isValid = /^[0-9]*[,.]?[0-9]*$/.test(value);
+    if (isValid) setNewValue(value);
   };
 
+  // TODO change to submit
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === "Enter") handleAdd();
   };
@@ -76,15 +76,6 @@ function SpeedList() {
         />
       </FormControl>
 
-      {/* <TextField
-          size="small"
-          inputProps={{
-            type: "number",
-            min: 0.1,
-            max: 16,
-            step: 0.1,
-          }}
-        /> */}
       {/* TODO add error handling */}
       {/* <p id="add-error">
         The value is not in the supported playback range (0.0625x - 16x)

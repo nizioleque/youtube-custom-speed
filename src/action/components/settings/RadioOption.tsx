@@ -43,6 +43,7 @@ function RadioOption({
               onFocus={onChange}
               onChange={(event) =>
                 // TODO support integers? (eg. add `transform` prop)
+                // TODO fix adding ./,
                 onChangeCustom(parseFloat(event.currentTarget.value))
               }
               // inputProps={option.customProps}
