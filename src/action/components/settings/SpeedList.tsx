@@ -66,7 +66,6 @@ function SpeedList() {
           flexWrap: "wrap",
           rowGap: 1.5,
           columnGap: 2,
-          justifyContent: "space-between",
           "& > :last-child": {
             marginRight: "auto",
           },
