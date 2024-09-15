@@ -1,15 +1,8 @@
 import { extendTheme } from "@mui/joy";
 import { deepmerge } from "@mui/utils";
 
-// TODO add Inter/Karla font?
-
 const fontFamily = [
-  "-apple-system",
-  "BlinkMacSystemFont",
-  '"Segoe UI"',
-  "Roboto",
-  '"Helvetica Neue"',
-  "Arial",
+  "Inter",
   "sans-serif",
   '"Apple Color Emoji"',
   '"Segoe UI Emoji"',

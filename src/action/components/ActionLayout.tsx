@@ -1,4 +1,4 @@
-import { Stack } from "@mui/joy";
+import { Box, Stack } from "@mui/joy";
 import { ReactNode } from "react";
 import Header from "./header/Header";
 
@@ -11,15 +11,13 @@ function ActionLayout({ children }: ActionLayoutProps) {
     <Stack
       sx={{
         minWidth: 420,
-        gap: 3,
-        paddingY: 2,
         "& > *": {
           marginX: 2,
         },
       }}
     >
       <Header />
-      <div>{children}</div>
+      <Box sx={{ paddingY: 3 }}>{children}</Box>
     </Stack>
   );
 }

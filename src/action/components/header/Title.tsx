@@ -6,7 +6,6 @@ function Title() {
       variant="soft"
       sx={{
         padding: 2,
-        marginTop: -2,
         display: "flex",
         alignItems: "center",
         gap: 2,

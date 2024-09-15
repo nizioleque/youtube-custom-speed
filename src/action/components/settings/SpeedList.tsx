@@ -90,6 +90,7 @@ function SpeedList() {
               onChange={handleChange}
               endDecorator={<Button onClick={handleAdd}>Add</Button>}
               placeholder="Add new"
+              sx={{ width: 200 }}
             />
             {error && <FormHelperText>{error}</FormHelperText>}
           </FormControl>
