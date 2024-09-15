@@ -4,6 +4,7 @@ import {
   Chip,
   ChipDelete,
   FormControl,
+  FormHelperText,
   Input,
   Stack,
 } from "@mui/joy";
@@ -13,17 +14,32 @@ import { useStorage } from "../../../hooks/useStorage";
 function SpeedList() {
   const [speedList, setSpeedList] = useStorage<number[]>("speedList", []);
   const [newValue, setNewValue] = useState<string>("");
+  const [error, setError] = useState<string | null>(null);
 
   const handleAdd = () => {
-    const valueParsed = parseFloat(newValue.replace(",", "."));
-    if (isNaN(valueParsed)) return;
+    setError(null);
+    if (newValue === "") return;
 
-    setSpeedList((current) => {
-      if (current.includes(valueParsed)) return current;
-      // TODO show message if value already exists
-      // TODO show message if value is out of range
-      return [...current, valueParsed].toSorted((a, b) => a - b);
-    });
+    const valueParsed = parseFloat(newValue.replace(",", "."));
+
+    if (isNaN(valueParsed)) {
+      setError("Invalid number");
+      return;
+    }
+
+    if (valueParsed < 0.0625 || valueParsed > 16) {
+      setError("Value is out of range (0.0625x - 16x)");
+      return;
+    }
+
+    if (speedList.includes(valueParsed)) {
+      setError("Value already exists");
+      return;
+    }
+
+    setSpeedList((current) =>
+      [...current, valueParsed].toSorted((a, b) => a - b)
+    );
     setNewValue("");
   };
 
@@ -68,21 +84,17 @@ function SpeedList() {
       </Box>
       <Box sx={{ alignSelf: "flex-start" }}>
         <form onSubmit={handleSubmit}>
-          <FormControl>
+          <FormControl error={error !== null}>
             <Input
               value={newValue ?? ""}
               onChange={handleChange}
               endDecorator={<Button onClick={handleAdd}>Add</Button>}
               placeholder="Add new"
             />
+            {error && <FormHelperText>{error}</FormHelperText>}
           </FormControl>
         </form>
       </Box>
-
-      {/* TODO add error handling */}
-      {/* <p id="add-error">
-        The value is not in the supported playback range (0.0625x - 16x)
-      </p> */}
     </Stack>
   );
 }
