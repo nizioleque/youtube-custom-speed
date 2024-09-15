@@ -7,7 +7,7 @@ function HeaderButtons() {
     <Stack
       sx={{
         flexDirection: "row",
-        gap: "2px",
+        justifyContent: "space-evenly",
       }}
     >
       <HeaderButton href={supportUrl} icon="🍺">
