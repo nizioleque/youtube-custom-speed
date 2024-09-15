@@ -7,7 +7,7 @@ import {
   Input,
   Stack,
 } from "@mui/joy";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useStorage } from "../../../hooks/useStorage";
 
 function SpeedList() {
@@ -37,9 +37,9 @@ function SpeedList() {
     if (isValid) setNewValue(value);
   };
 
-  // TODO change to submit
-  const handleKeyDown = (event: KeyboardEvent) => {
-    if (event.key === "Enter") handleAdd();
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    handleAdd();
   };
 
   return (
@@ -66,15 +66,18 @@ function SpeedList() {
           </Chip>
         ))}
       </Box>
-      <FormControl sx={{ alignSelf: "flex-start" }}>
-        <Input
-          value={newValue ?? ""}
-          onChange={handleChange}
-          onKeyDown={handleKeyDown}
-          endDecorator={<Button onClick={handleAdd}>Add</Button>}
-          placeholder="Add new"
-        />
-      </FormControl>
+      <Box sx={{ alignSelf: "flex-start" }}>
+        <form onSubmit={handleSubmit}>
+          <FormControl>
+            <Input
+              value={newValue ?? ""}
+              onChange={handleChange}
+              endDecorator={<Button onClick={handleAdd}>Add</Button>}
+              placeholder="Add new"
+            />
+          </FormControl>
+        </form>
+      </Box>
 
       {/* TODO add error handling */}
       {/* <p id="add-error">
