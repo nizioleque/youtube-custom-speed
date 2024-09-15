@@ -4,29 +4,22 @@ import { ReactNode } from "react";
 interface HeaderButtonProps {
   href: string;
   children: ReactNode;
+  icon: ReactNode;
 }
 
-function HeaderButton({ href, children }: HeaderButtonProps) {
+function HeaderButton({ href, children, icon }: HeaderButtonProps) {
   return (
     <Button
       component="a"
       href={href}
       variant="soft"
       color="neutral"
-      size="sm"
       target="_blank"
-      sx={(theme) => ({
-        flexDirection: "row",
-        justifyContent: "center",
+      startDecorator={icon}
+      sx={{
         flex: 1,
         borderRadius: 0,
-        ":nth-child(2)": {
-          borderBottomLeftRadius: theme.radius.lg,
-        },
-        ":nth-child(4)": {
-          borderBottomRightRadius: theme.radius.lg,
-        },
-      })}
+      }}
     >
       {children}
     </Button>

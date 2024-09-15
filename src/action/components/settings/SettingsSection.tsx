@@ -11,7 +11,7 @@ function SettingsSection({ title, tips = [], children }: SectionProps) {
   return (
     <Stack sx={{ gap: 2 }}>
       <Stack>
-        <Typography level="h3" gutterBottom>
+        <Typography level="h4" gutterBottom>
           {title}
         </Typography>
         {tips.map((tip) => (

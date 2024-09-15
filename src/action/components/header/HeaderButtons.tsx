@@ -1,13 +1,25 @@
+import { Stack } from "@mui/joy";
 import { bugReportURL, reviewUrl, supportUrl } from "../../../const/urls";
 import HeaderButton from "./HeaderButton";
 
 function HeaderButtons() {
   return (
-    <>
-      <HeaderButton href={supportUrl}>🍺 Support</HeaderButton>
-      <HeaderButton href={reviewUrl}>⭐ Rate</HeaderButton>
-      <HeaderButton href={bugReportURL}>📧 Report a bug</HeaderButton>
-    </>
+    <Stack
+      sx={{
+        flexDirection: "row",
+        gap: "2px",
+      }}
+    >
+      <HeaderButton href={supportUrl} icon="🍺">
+        Support
+      </HeaderButton>
+      <HeaderButton href={reviewUrl} icon="⭐">
+        Rate
+      </HeaderButton>
+      <HeaderButton href={bugReportURL} icon="📧">
+        Report a bug
+      </HeaderButton>
+    </Stack>
   );
 }
 

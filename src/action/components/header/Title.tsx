@@ -1,4 +1,4 @@
-import { Sheet, Typography } from "@mui/joy";
+import { Box, Sheet, Typography } from "@mui/joy";
 
 function Title() {
   return (
@@ -6,24 +6,14 @@ function Title() {
       variant="soft"
       sx={{
         padding: 2,
-        borderRadius: "lg",
-        borderBottomLeftRadius: 0,
-        borderBottomRightRadius: 0,
-        position: "relative",
-        overflow: "hidden",
-        gridArea: "title",
+        marginTop: -2,
+        display: "flex",
+        alignItems: "center",
+        gap: 2,
       }}
     >
-      <Typography
-        level="h2"
-        sx={{
-          fontWeight: "md",
-          zIndex: 1,
-          lineHeight: 1,
-        }}
-      >
-        {chrome.i18n.getMessage("extName")}
-      </Typography>
+      <Box component="img" src="/static/icon128.png" height={40} width={40} />
+      <Typography level="h3">{chrome.i18n.getMessage("extName")}</Typography>
     </Sheet>
   );
 }

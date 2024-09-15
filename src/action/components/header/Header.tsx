@@ -7,9 +7,7 @@ function Header() {
     <Stack
       component="header"
       sx={{
-        display: "grid",
-        gridTemplateAreas: '"title title title" "button1 button2 button3"',
-        gridTemplateColumns: "1fr 1fr 1fr",
+        marginX: 0,
         gap: "2px",
       }}
     >
