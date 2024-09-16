@@ -86,6 +86,7 @@ function SpeedList() {
           <FormControl error={error !== null}>
             <Input
               value={newValue ?? ""}
+              autoComplete="off"
               onChange={handleChange}
               endDecorator={<Button onClick={handleAdd}>Add</Button>}
               placeholder="Add new"
