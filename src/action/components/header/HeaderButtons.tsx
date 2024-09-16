@@ -1,4 +1,7 @@
 import { Stack } from "@mui/joy";
+import BugIcon from "../../../assets/icons/bug.svg";
+import RateIcon from "../../../assets/icons/rate.svg";
+import SupportIcon from "../../../assets/icons/support.svg";
 import { bugReportURL, reviewUrl, supportUrl } from "../../../const/urls";
 import HeaderButton from "./HeaderButton";
 
@@ -10,13 +13,13 @@ function HeaderButtons() {
         justifyContent: "space-evenly",
       }}
     >
-      <HeaderButton href={supportUrl} icon="🍺">
+      <HeaderButton href={supportUrl} icon={SupportIcon}>
         Support
       </HeaderButton>
-      <HeaderButton href={reviewUrl} icon="⭐">
+      <HeaderButton href={reviewUrl} icon={RateIcon}>
         Rate
       </HeaderButton>
-      <HeaderButton href={bugReportURL} icon="📧">
+      <HeaderButton href={bugReportURL} icon={BugIcon}>
         Report a bug
       </HeaderButton>
     </Stack>

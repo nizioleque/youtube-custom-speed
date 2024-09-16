@@ -10,7 +10,7 @@ export default {
   module: {
     rules: [
       {
-        include: path.resolve("./static"),
+        include: path.resolve("./src/assets/icons"),
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         loader: "@svgr/webpack",

@@ -1,13 +1,13 @@
-import { Box, Button } from "@mui/joy";
-import { ReactNode } from "react";
+import { Button, SvgIcon } from "@mui/joy";
+import { FunctionComponent, ReactNode } from "react";
 
 interface HeaderButtonProps {
   href: string;
   children: ReactNode;
-  icon: ReactNode;
+  icon: FunctionComponent;
 }
 
-function HeaderButton({ href, children, icon }: HeaderButtonProps) {
+function HeaderButton({ href, children, icon: Icon }: HeaderButtonProps) {
   return (
     <Button
       className="header-background"
@@ -17,15 +17,7 @@ function HeaderButton({ href, children, icon }: HeaderButtonProps) {
       target="_blank"
       size="sm"
       startDecorator={
-        <Box
-          sx={{
-            "--shadow-color":
-              "color-mix(in srgb, var(--joy-palette-primary-800), transparent 70%)",
-            filter: "drop-shadow(0 0 1px var(--shadow-color))",
-          }}
-        >
-          {icon}
-        </Box>
+        <SvgIcon component={Icon} inheritViewBox sx={{ fontSize: 18 }} />
       }
     >
       {children}
