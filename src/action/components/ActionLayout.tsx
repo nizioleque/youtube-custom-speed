@@ -7,6 +7,8 @@ interface ActionLayoutProps {
 }
 
 function ActionLayout({ children }: ActionLayoutProps) {
+  // TODO fix width inside chrome://extensions
+
   return (
     <Stack
       sx={{

@@ -1,10 +1,15 @@
-import { Sheet, Typography } from "@mui/joy";
+import { useState } from "react";
+import Controls from "./components/Controls";
+import Menu from "./components/Menu";
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+
   return (
-    <Sheet sx={{ padding: 2 }}>
-      <Typography>Hello World from content script!</Typography>
-    </Sheet>
+    <>
+      <Controls setIsMenuOpen={setIsMenuOpen} />
+      <Menu isOpen={isMenuOpen} />
+    </>
   );
 }
 
