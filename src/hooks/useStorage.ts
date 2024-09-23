@@ -1,13 +1,16 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { StorageContent } from "../types";
 
 // adapted from JohnBra on GitHub
 // https://gist.github.com/JohnBra/c81451ea7bc9e77f8021beb4f198ab96
+
+// TODO compare this implementation to the source for improvements
 
 type StorageArea = "sync" | "local";
 type SetValue<T> = Dispatch<SetStateAction<T>>;
 
 export function useStorage<T>(
-  key: string,
+  key: keyof StorageContent,
   initialValue: T,
   area: StorageArea = "sync"
 ): [T, SetValue<T>] {

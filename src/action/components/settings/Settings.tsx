@@ -15,7 +15,8 @@ function Settings() {
         tips={["When opening a new YouTube tab"]}
       >
         <RadioOptions
-          storageKey="newtab"
+          // TODO change storage keys and migrate old settings
+          storageKey="newTabSpeed"
           options={[
             { label: "Set to normal speed (1x)", value: "normal" },
             {
@@ -43,7 +44,7 @@ function Settings() {
         tips={["When loading a new video in the same tab"]}
       >
         <RadioOptions
-          storageKey="newvid"
+          storageKey="newViedoSpeed"
           options={[
             { label: "Restore to default speed", value: "restore" },
             { label: "Keep the same speed", value: "keep" },
@@ -60,7 +61,7 @@ function Settings() {
         tips={["When changing speed in one YouTube tab"]}
       >
         <RadioOptions
-          storageKey="tabsync"
+          storageKey="tabSync"
           options={[
             { label: "Only apply the change in current tab", value: "nosync" },
             {

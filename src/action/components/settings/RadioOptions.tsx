@@ -1,10 +1,17 @@
 import { RadioGroup } from "@mui/joy";
 import { useStorage } from "../../../hooks/useStorage";
-import { RadioOptionData, SettingsOption } from "../../../types";
+import {
+  PickByType,
+  RadioOptionData,
+  SettingsOption,
+  StorageContent,
+} from "../../../types";
 import RadioOption from "./RadioOption";
 
+type StorageSettings = PickByType<StorageContent, SettingsOption>;
+
 interface OptionsProps {
-  storageKey: string;
+  storageKey: keyof StorageSettings;
   options: RadioOptionData[];
 }
 

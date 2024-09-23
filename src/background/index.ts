@@ -11,6 +11,7 @@ chrome.runtime.onInstalled.addListener((details) => {
 
   if (details.reason === "install" || details.reason === "update") {
     // configure default memory
+    // TODO use StorageContent type
     const defaultSettings = {
       // TODO adjust to new storage schema
       currentSpeed: 1,
