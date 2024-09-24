@@ -42,6 +42,8 @@ export type SettingsOptionAny =
   | SettingsOptionCustom<unknown, unknown>;
 
 export interface StorageContent {
+  currentSpeed: number;
+  speedList: number[];
   newTabSpeed: SettingsOption<"normal" | "last" | "doNothing", number>;
   newVideoSpeed: SettingsOption<"restore" | "keep" | "doNothing">;
   tabSync: SettingsOption<"noSync" | "sync">;

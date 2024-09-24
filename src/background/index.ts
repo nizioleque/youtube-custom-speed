@@ -13,17 +13,9 @@ chrome.runtime.onInstalled.addListener((details) => {
 
   if (details.reason === "install" || details.reason === "update") {
     // configure default memory
-    // TODO finish adjusting to new storage schema
-    // const defaultSettings = {
-    //   currentSpeed: 1,
-    //   speedList: [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 3, 5, 16],
-    //   newtab: "normal",
-    //   newvid: "restore",
-    //   tabsync: "nosync",
-    //   customSpeed: 1.25,
-    // };
-
     const defaultSettings: StorageContent = {
+      currentSpeed: 1,
+      speedList: [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 3, 5, 16],
       newTabSpeed: {
         selectedOption: "normal",
         isCustomSelected: false,
