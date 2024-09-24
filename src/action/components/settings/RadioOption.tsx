@@ -1,17 +1,20 @@
 import { FormControl, FormHelperText, Input, Radio } from "@mui/joy";
 import { ChangeEvent, useEffect, useState } from "react";
-import type { RadioOptionData } from "../../../types";
 
 interface RadioOptionProps {
-  option: RadioOptionData;
+  label: string;
+  isCustom: boolean;
   checked: boolean;
-  customValue: number;
+  customValue?: number;
   onChange: () => void;
   onChangeCustom: (value: number) => void;
 }
 
+// TODO move validation to prop function
+// TODO move custom support to separate component
 function RadioOption({
-  option,
+  label,
+  isCustom,
   checked,
   customValue,
   onChange,
@@ -56,14 +59,14 @@ function RadioOption({
       <Radio
         checked={checked}
         onChange={onChange}
-        label={option.label}
+        label={label}
         sx={{
           "&:not(:first-of-type)": {
             marginBlockStart: "var(--RadioGroup-gap)",
           },
         }}
       />
-      {option.custom && (
+      {isCustom && (
         <FormHelperText sx={{ margin: "var(--FormHelperText-margin)" }}>
           <FormControl error={error !== null}>
             <Input

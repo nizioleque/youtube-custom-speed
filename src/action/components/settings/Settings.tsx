@@ -15,25 +15,23 @@ function Settings() {
         tips={["When opening a new YouTube tab"]}
       >
         <RadioOptions
-          // TODO change storage keys and migrate old settings
           storageKey="newTabSpeed"
           options={[
-            { label: "Set to normal speed (1x)", value: "normal" },
             {
-              label: "Set to custom speed",
-              value: "custom",
-              custom: true,
-              customProps: {
-                type: "number",
-                step: "0.1",
-                min: "0.0625",
-                max: "16",
-              },
+              value: "normal",
+              label: "Set to normal speed (1x)",
             },
-            { label: "Restore last used speed", value: "last" },
             {
+              type: "custom",
+              label: "Set to custom speed",
+            },
+            {
+              value: "last",
+              label: "Restore last used speed",
+            },
+            {
+              value: "doNothing",
               label: "Do nothing (use YouTube's default behavior)",
-              value: "do-nothing",
             },
           ]}
         />
@@ -44,13 +42,19 @@ function Settings() {
         tips={["When loading a new video in the same tab"]}
       >
         <RadioOptions
-          storageKey="newViedoSpeed"
+          storageKey="newVideoSpeed"
           options={[
-            { label: "Restore to default speed", value: "restore" },
-            { label: "Keep the same speed", value: "keep" },
             {
+              value: "restore",
+              label: "Restore to default speed",
+            },
+            {
+              value: "keep",
+              label: "Keep the same speed",
+            },
+            {
+              value: "doNothing",
               label: "Do nothing (use YouTube's default behavior)",
-              value: "do-nothing",
             },
           ]}
         />
@@ -63,10 +67,13 @@ function Settings() {
         <RadioOptions
           storageKey="tabSync"
           options={[
-            { label: "Only apply the change in current tab", value: "nosync" },
             {
-              label: "Apply the same speed in all open YouTube tabs",
+              value: "noSync",
+              label: "Only apply the change in current tab",
+            },
+            {
               value: "sync",
+              label: "Apply the same speed in all open YouTube tabs",
             },
           ]}
         />
