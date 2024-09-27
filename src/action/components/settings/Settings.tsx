@@ -1,6 +1,6 @@
-import RadioOptions from "./RadioOptions";
 import SettingsLayout from "./SettingsLayout";
 import SettingsSection from "./SettingsSection";
+import SingleChoiceSetting from "./singleChoiceSetting/SingleChoiceSetting";
 import SpeedList from "./SpeedList";
 
 function Settings() {
@@ -14,7 +14,7 @@ function Settings() {
         title="Default speed"
         tips={["When opening a new YouTube tab"]}
       >
-        <RadioOptions
+        <SingleChoiceSetting
           storageKey="newTabSpeed"
           options={[
             {
@@ -34,6 +34,16 @@ function Settings() {
               label: "Do nothing (use YouTube's default behavior)",
             },
           ]}
+          transformCustomInput={(newValue, oldValue) =>
+            /^[0-9]*[,.]?[0-9]*$/.test(newValue) ? newValue : oldValue
+          }
+          parseCustomValue={(value) => parseFloat(value.replace(",", "."))}
+          validateCustom={(value) => {
+            if (isNaN(value)) return "Invalid number";
+            if (value < 0.0625 || value > 16) {
+              return "Value is out of range (0.0625x - 16x)";
+            }
+          }}
         />
       </SettingsSection>
 
@@ -41,7 +51,7 @@ function Settings() {
         title="Next video speed"
         tips={["When loading a new video in the same tab"]}
       >
-        <RadioOptions
+        <SingleChoiceSetting
           storageKey="newVideoSpeed"
           options={[
             {
@@ -64,7 +74,7 @@ function Settings() {
         title="Sync between tabs"
         tips={["When changing speed in one YouTube tab"]}
       >
-        <RadioOptions
+        <SingleChoiceSetting
           storageKey="tabSync"
           options={[
             {
