@@ -1,48 +1,63 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { StorageContent } from "../types";
+import { useEffect, useState } from "react";
+import { StorageContent } from "../types/storage";
+import { SetValue } from "../types/utils";
 
 // adapted from JohnBra on GitHub
 // https://gist.github.com/JohnBra/c81451ea7bc9e77f8021beb4f198ab96
 
 // TODO compare this implementation to the source for improvements
 
-type StorageArea = "sync" | "local";
-type SetValue<T> = Dispatch<SetStateAction<T>>;
+type AreaName = chrome.storage.AreaName;
+type StateValue<T extends keyof StorageContent, D> =
+  | { isInitial: true; value: D }
+  | { isInitial: false; value: StorageContent[T] };
 
-export function useStorage<T>(
-  key: keyof StorageContent,
-  initialValue: T,
-  area: StorageArea = "sync"
-): [T, SetValue<T>] {
-  const [storedValue, setStoredValue] = useState<T>(initialValue);
+export function useStorage<D, T extends keyof StorageContent>(
+  key: T,
+  initialValue: D,
+  area: AreaName = "sync"
+): [StorageContent[T] | D, SetValue<StorageContent[T]>] {
+  const [storedValue, setStoredValue] = useState<StateValue<T, D>>({
+    isInitial: true,
+    value: initialValue,
+  });
 
   // TODO switch to useLayoutEffect?
   useEffect(() => {
-    readStorage<T>(key, area).then((response) => {
-      if (response !== undefined) setStoredValue(response);
+    readStorage(key, area).then((response) => {
+      // TODO check if `undefined` can be used safely
+      if (response !== undefined) {
+        setStoredValue({ isInitial: false, value: response });
+      }
     });
 
     // TODO remove listener
     chrome.storage.onChanged.addListener((changes, namespace) => {
       if (namespace === area && key in changes) {
-        setStoredValue(changes[key].newValue);
+        setStoredValue({
+          isInitial: false,
+          value: changes[key].newValue,
+        });
       }
     });
   }, [area, key]);
 
   // TODO useCallback?
-  const setValue: SetValue<T> = (value) => {
-    const newValue = value instanceof Function ? value(storedValue) : value;
-    setStorage<T>(key, newValue, area);
+  const setValue: SetValue<StorageContent[T]> = (value) => {
+    if (storedValue.isInitial) return;
+
+    const newValue =
+      value instanceof Function ? value(storedValue.value) : value;
+    setStorage(key, newValue, area);
   };
 
-  return [storedValue, setValue];
+  return [storedValue.value, setValue];
 }
 
-export async function readStorage<T>(
-  key: string,
-  area: StorageArea = "local"
-): Promise<T | undefined> {
+export async function readStorage<T extends keyof StorageContent>(
+  key: T,
+  area: AreaName = "local"
+): Promise<StorageContent[T] | undefined> {
   try {
     const result = await chrome.storage[area].get(key);
     return result?.[key];
@@ -52,10 +67,10 @@ export async function readStorage<T>(
   }
 }
 
-export async function setStorage<T>(
-  key: string,
-  value: T,
-  area: StorageArea = "local"
+export async function setStorage<T extends keyof StorageContent>(
+  key: T,
+  value: StorageContent[T],
+  area: AreaName = "local"
 ): Promise<boolean> {
   try {
     await chrome.storage[area].set({ [key]: value });

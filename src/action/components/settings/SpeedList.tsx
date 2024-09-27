@@ -12,7 +12,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import { useStorage } from "../../../hooks/useStorage";
 
 function SpeedList() {
-  const [speedList, setSpeedList] = useStorage<number[]>("speedList", []);
+  const [speedList, setSpeedList] = useStorage("speedList", [] as number[]);
   const [newValue, setNewValue] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
