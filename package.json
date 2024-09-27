@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "watch": "webpack --watch --config webpack/webpack.development.mjs",
-    "build": "webpack --config webpack/webpack.production.mjs",
+    "build": "npm-run-all lint:* build:skip-lint",
+    "build:skip-lint": "webpack --config webpack/webpack.production.mjs",
     "lint:ts": "tsc --noEmit",
     "lint:eslint": "eslint --ignore-path .gitignore .",
     "lint:prettier": "prettier --check --ignore-path .gitignore .",
