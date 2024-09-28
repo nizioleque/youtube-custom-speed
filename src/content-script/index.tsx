@@ -3,14 +3,13 @@ import { CacheProvider } from "@emotion/react";
 import ReactDOM from "react-dom/client";
 import { waitUntilExists } from "../utils/dom";
 import App from "./App";
+import { getControls } from "./utils";
 
 async function injectReact() {
   const container = document.createElement("span");
 
   // wait for the player UI to be available
-  const target = await waitUntilExists(() =>
-    document.body.querySelector(".ytp-right-controls")
-  );
+  const target = await waitUntilExists(getControls);
 
   target.prepend(container);
 
