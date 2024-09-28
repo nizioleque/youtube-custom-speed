@@ -1,5 +1,6 @@
 import { Box } from "@mui/joy";
 import { Dispatch, SetStateAction } from "react";
+import useCurrentSpeed from "../hooks/useCurrentSpeed";
 import Button from "./Button";
 
 interface ControlsProps {
@@ -7,6 +8,8 @@ interface ControlsProps {
 }
 
 function Controls({ setIsMenuOpen }: ControlsProps) {
+  const currentSpeed = useCurrentSpeed();
+
   return (
     <Box
       sx={{
@@ -35,7 +38,7 @@ function Controls({ setIsMenuOpen }: ControlsProps) {
           9.99x
         </Box>
         <Box component="span" className="ytp-time-display">
-          1x
+          {currentSpeed}x
         </Box>
       </Box>
 
