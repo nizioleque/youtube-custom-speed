@@ -1,14 +1,18 @@
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import ReactDOM from "react-dom/client";
+import { waitUntilExists } from "../utils/dom";
 import App from "./App";
 
-function injectReact() {
+async function injectReact() {
   const container = document.createElement("span");
 
-  // TODO handle missing element ?
-  console.log(document.body.querySelector(".ytp-right-controls"));
-  document.body.querySelector(".ytp-right-controls")?.prepend(container);
+  // wait for the player UI to be available
+  const target = await waitUntilExists(() =>
+    document.body.querySelector(".ytp-right-controls")
+  );
+
+  target.prepend(container);
 
   const cache = createCache({ key: "mui", container });
 
