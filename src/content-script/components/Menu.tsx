@@ -1,6 +1,7 @@
 import { Box } from "@mui/joy";
 import { useStorage } from "../../hooks/useStorage";
 import useCurrentSpeed from "../hooks/useCurrentSpeed";
+import useSetSpeed from "../hooks/useSetSpeed";
 
 interface MenuProps {
   isOpen: boolean;
@@ -12,6 +13,7 @@ function Menu({ isOpen }: MenuProps) {
   const [speedList] = useStorage("speedList", [] as number[]);
 
   const currentSpeed = useCurrentSpeed();
+  const setSpeed = useSetSpeed();
 
   return (
     <Box
@@ -37,6 +39,7 @@ function Menu({ isOpen }: MenuProps) {
             component="li"
             key={speed}
             aria-current={isActive}
+            onClick={() => setSpeed(speed)}
             sx={{
               listStyleType: "none",
               paddingX: 2,
@@ -47,7 +50,7 @@ function Menu({ isOpen }: MenuProps) {
 
               backgroundColor: isActive ? "rgb(255 255 255 / 0.2)" : null,
               "&:hover": {
-                backgroundColor: "rgb(255 255 255 / 0.1)",
+                backgroundColor: isActive ? null : "rgb(255 255 255 / 0.1)",
               },
             }}
           >
