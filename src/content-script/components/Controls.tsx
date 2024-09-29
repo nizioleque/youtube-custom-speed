@@ -8,6 +8,8 @@ interface ControlsProps {
 }
 
 function Controls({ setIsMenuOpen }: ControlsProps) {
+  // TODO fix font color
+
   const currentSpeed = useCurrentSpeed();
 
   return (
