@@ -1,3 +1,7 @@
+import { useStorage } from "../../hooks/useStorage";
+import useCurrentSpeed from "../hooks/useCurrentSpeed";
+import useSetSpeed from "../hooks/useSetSpeed";
+
 interface ButtonProps {
   direction: "back" | "forward";
 }
@@ -8,9 +12,22 @@ const PathForward =
 
 function Button({ direction }: ButtonProps) {
   // TODO add shadow
+  const [speedList] = useStorage("speedList", [] as number[]);
+
+  const currentSpeed = useCurrentSpeed();
+  const setSpeed = useSetSpeed();
+
+  const handleClick = () => {
+    const newSpeed =
+      direction === "forward"
+        ? speedList.find((speed) => speed > currentSpeed)
+        : speedList.toReversed().find((speed) => speed < currentSpeed);
+
+    if (newSpeed !== undefined) setSpeed(newSpeed);
+  };
 
   return (
-    <button className="ytp-button">
+    <button className="ytp-button" onClick={handleClick}>
       <svg height="100%" viewBox="0 0 36 36" width="100%">
         <use className="ytp-svg-shadow" />
         <path
