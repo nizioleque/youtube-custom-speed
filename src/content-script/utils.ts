@@ -3,5 +3,5 @@ export function getControls() {
 }
 
 export function getVideo() {
-  return document.querySelector<HTMLVideoElement>("ytd-player video");
+  return document.querySelector<HTMLVideoElement>("#movie_player video");
 }

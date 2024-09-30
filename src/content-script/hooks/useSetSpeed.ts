@@ -28,12 +28,18 @@ function useSetSpeed() {
       .find((speed) => speed < currentSpeed);
 
     if (newSpeed !== undefined) setSpeed(newSpeed);
+
+    // return current speed as fallback for type safety
+    return newSpeed ?? currentSpeed;
   }, [currentSpeed, setSpeed, speedList]);
 
   const increaseSpeed = useCallback(() => {
     const newSpeed = speedList.find((speed) => speed > currentSpeed);
 
     if (newSpeed !== undefined) setSpeed(newSpeed);
+
+    // return current speed as fallback for type safety
+    return newSpeed ?? currentSpeed;
   }, [currentSpeed, setSpeed, speedList]);
 
   return { setSpeed, decreaseSpeed, increaseSpeed };

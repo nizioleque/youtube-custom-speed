@@ -2,12 +2,14 @@ import { Box } from "@mui/joy";
 import { useState } from "react";
 import Controls from "./components/Controls";
 import Menu from "./components/Menu";
+import useKeyboardShortcuts from "./hooks/useKeyboardShortcuts";
 import useNewVideoSpeed from "./hooks/useNewVideoSpeed";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   useNewVideoSpeed();
+  useKeyboardShortcuts();
 
   return (
     <Box
