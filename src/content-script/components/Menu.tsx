@@ -13,7 +13,7 @@ function Menu({ isOpen }: MenuProps) {
   const [speedList] = useStorage("speedList", [] as number[]);
 
   const currentSpeed = useCurrentSpeed();
-  const setSpeed = useSetSpeed();
+  const { setSpeed } = useSetSpeed();
 
   return (
     <Box

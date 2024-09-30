@@ -10,7 +10,7 @@ function useSetInitialSpeed() {
 
   const [awaitingChange, setAwaitingChange] = useState<boolean>(false);
 
-  const setSpeed = useSetSpeed();
+  const { setSpeed } = useSetSpeed();
 
   const execute = useCallback(
     (initialSpeed: StorageContent["newTabSpeed"]) => {

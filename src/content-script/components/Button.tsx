@@ -1,5 +1,3 @@
-import { useStorage } from "../../hooks/useStorage";
-import useCurrentSpeed from "../hooks/useCurrentSpeed";
 import useSetSpeed from "../hooks/useSetSpeed";
 
 interface ButtonProps {
@@ -12,18 +10,11 @@ const PathForward =
 
 function Button({ direction }: ButtonProps) {
   // TODO add shadow
-  const [speedList] = useStorage("speedList", [] as number[]);
-
-  const currentSpeed = useCurrentSpeed();
-  const setSpeed = useSetSpeed();
+  const { decreaseSpeed, increaseSpeed } = useSetSpeed();
 
   const handleClick = () => {
-    const newSpeed =
-      direction === "forward"
-        ? speedList.find((speed) => speed > currentSpeed)
-        : speedList.toReversed().find((speed) => speed < currentSpeed);
-
-    if (newSpeed !== undefined) setSpeed(newSpeed);
+    if (direction === "forward") increaseSpeed();
+    else decreaseSpeed();
   };
 
   return (

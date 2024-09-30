@@ -10,7 +10,7 @@ function useNewVideoSpeed() {
 
   const [wasStartEvent, setWasStartEvent] = useState<boolean>(false);
 
-  const setSpeed = useSetSpeed();
+  const { setSpeed } = useSetSpeed();
   const setInitialSpeed = useSetInitialSpeed();
 
   // handle first video (new tab) speed
