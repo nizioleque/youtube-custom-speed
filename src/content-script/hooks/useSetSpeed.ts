@@ -13,7 +13,6 @@ function useSetSpeed() {
 
   const setSpeed = useCallback(
     async (speed: number) => {
-      // TODO open UI on keyboard shortcut
       const video = await waitUntilExists(getVideo);
       video.playbackRate = speed;
 

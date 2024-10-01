@@ -14,7 +14,6 @@ function OptionCustom<T extends keyof StorageSettings>(
 
   if (storageValue === null) return null;
 
-  // TODO add error boundary to handle this error
   if (!("customValue" in storageValue)) {
     // custom value can only be applied to customizable settings
     throw new Error("Non-customizable setting cannot have a custom value");

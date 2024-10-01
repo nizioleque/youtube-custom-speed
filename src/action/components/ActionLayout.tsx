@@ -7,13 +7,9 @@ interface ActionLayoutProps {
 }
 
 function ActionLayout({ children }: ActionLayoutProps) {
-  // TODO fix width inside chrome://extensions
-  // TODO fix resize after opening action
-
   return (
     <Stack
       sx={{
-        minWidth: 420,
         "& > *": {
           marginX: 2,
         },
