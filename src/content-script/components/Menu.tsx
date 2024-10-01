@@ -1,27 +1,55 @@
 import { Box } from "@mui/joy";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { useStorage } from "../../hooks/useStorage";
 import useCurrentSpeed from "../hooks/useCurrentSpeed";
 import useSetSpeed from "../hooks/useSetSpeed";
 
 interface MenuProps {
-  isOpen: boolean;
+  isTextHover: boolean;
 }
 
-function Menu({ isOpen }: MenuProps) {
+function Menu({ isTextHover }: MenuProps) {
   // TODO add other styles from the settings popup (transition, shadow, etc.)
+  // TODO disable user select
 
   const [speedList] = useStorage("speedList", [] as number[]);
+
+  const [isMenuHover, setIsMenuHover] = useState<boolean>(false);
 
   const currentSpeed = useCurrentSpeed();
   const { setSpeed } = useSetSpeed();
 
+  const isOpen = isTextHover || isMenuHover;
+
   return (
     <Box
-      component="ul"
+      component={motion.ul}
+      variants={{
+        open: {
+          opacity: 1,
+          display: "block",
+          transition: {
+            duration: 0.1,
+          },
+        },
+        closed: {
+          opacity: 0,
+          display: "none",
+          transition: {
+            delay: 0.1,
+            duration: 0.1,
+          },
+        },
+      }}
+      initial="closed"
+      animate={isOpen ? "open" : "closed"}
+      onMouseEnter={() => setIsMenuHover(true)}
+      onMouseLeave={() => setIsMenuHover(false)}
       sx={{
         position: "absolute",
         bottom: "100%",
-        zIndex: 32,
+        zIndex: 41,
 
         paddingY: 1,
         borderRadius: "md",

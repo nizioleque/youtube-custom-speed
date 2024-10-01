@@ -6,7 +6,7 @@ import useKeyboardShortcuts from "./hooks/useKeyboardShortcuts";
 import useNewVideoSpeed from "./hooks/useNewVideoSpeed";
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isTextHover, setIsTextHover] = useState<boolean>(false);
 
   useNewVideoSpeed();
   useKeyboardShortcuts();
@@ -22,8 +22,8 @@ function App() {
         height: "100%",
       }}
     >
-      <Controls setIsMenuOpen={setIsMenuOpen} />
-      <Menu isOpen={isMenuOpen} />
+      <Controls setIsTextHover={setIsTextHover} />
+      <Menu isTextHover={isTextHover} />
     </Box>
   );
 }

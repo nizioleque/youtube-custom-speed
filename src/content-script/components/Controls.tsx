@@ -4,10 +4,10 @@ import useCurrentSpeed from "../hooks/useCurrentSpeed";
 import Button from "./Button";
 
 interface ControlsProps {
-  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
+  setIsTextHover: Dispatch<SetStateAction<boolean>>;
 }
 
-function Controls({ setIsMenuOpen }: ControlsProps) {
+function Controls({ setIsTextHover }: ControlsProps) {
   // TODO fix font color
 
   const currentSpeed = useCurrentSpeed();
@@ -23,9 +23,12 @@ function Controls({ setIsMenuOpen }: ControlsProps) {
       <Button direction="back" />
 
       <Box
+        onMouseEnter={() => setIsTextHover(true)}
+        onMouseLeave={() => setIsTextHover(false)}
         sx={{
           display: "grid",
           placeItems: "center",
+          zIndex: 41,
           "& > *": {
             gridArea: "1 / 1",
           },
