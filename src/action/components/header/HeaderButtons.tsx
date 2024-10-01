@@ -1,8 +1,8 @@
+import BugIcon from "@/assets/icons/bug.svg";
+import RateIcon from "@/assets/icons/rate.svg";
+import SupportIcon from "@/assets/icons/support.svg";
+import { bugReportURL, reviewUrl, supportUrl } from "@/const/urls";
 import { Stack } from "@mui/joy";
-import BugIcon from "../../../assets/icons/bug.svg";
-import RateIcon from "../../../assets/icons/rate.svg";
-import SupportIcon from "../../../assets/icons/support.svg";
-import { bugReportURL, reviewUrl, supportUrl } from "../../../const/urls";
 import HeaderButton from "./HeaderButton";
 
 function HeaderButtons() {

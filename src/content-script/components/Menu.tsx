@@ -1,7 +1,7 @@
+import { useStorage } from "@/hooks/useStorage";
 import { Box } from "@mui/joy";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { useStorage } from "../../hooks/useStorage";
 import useCurrentSpeed from "../hooks/useCurrentSpeed";
 import useSetSpeed from "../hooks/useSetSpeed";
 

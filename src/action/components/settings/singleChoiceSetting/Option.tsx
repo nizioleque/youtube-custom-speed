@@ -1,13 +1,8 @@
-import {
-  SingleChoiceOption,
-  SingleChoiceSettingAny,
-} from "../../../../types/settings";
-import { StorageSettings } from "../../../../types/storage";
+import { SingleChoiceOption, SingleChoiceSettingAny } from "@/types/settings";
+import { StorageSettings } from "@/types/storage";
 import OptionCustom from "./OptionCustom";
 import OptionPredefined from "./OptionPredefined";
 import { SingleChoiceSettingProps } from "./SingleChoiceSetting";
-
-// TODO add @/ imports
 
 export type OptionProps<
   T extends keyof StorageSettings,

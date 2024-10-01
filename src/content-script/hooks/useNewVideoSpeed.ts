@@ -1,5 +1,5 @@
+import { useStorage } from "@/hooks/useStorage";
 import { useContext, useEffect, useState } from "react";
-import { useStorage } from "../../hooks/useStorage";
 import AppContext from "../context/AppContext";
 import useSetInitialSpeed from "./useSetInitialSpeed";
 import useSetSpeed from "./useSetSpeed";

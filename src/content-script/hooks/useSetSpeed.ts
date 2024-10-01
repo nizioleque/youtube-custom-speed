@@ -1,6 +1,6 @@
+import { useStorage } from "@/hooks/useStorage";
+import { waitUntilExists } from "@/utils/dom";
 import { useCallback, useContext } from "react";
-import { useStorage } from "../../hooks/useStorage";
-import { waitUntilExists } from "../../utils/dom";
 import AppContext from "../context/AppContext";
 import { getVideo } from "../utils";
 import useCurrentSpeed from "./useCurrentSpeed";

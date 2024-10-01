@@ -1,3 +1,4 @@
+import { useStorage } from "@/hooks/useStorage";
 import {
   Box,
   Button,
@@ -9,7 +10,6 @@ import {
   Stack,
 } from "@mui/joy";
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useStorage } from "../../../hooks/useStorage";
 
 function SpeedList() {
   const [speedList, setSpeedList] = useStorage("speedList", [] as number[]);

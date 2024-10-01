@@ -1,11 +1,8 @@
 /* eslint-disable react/prop-types */
 
-import { useStorage } from "../../../../hooks/useStorage";
-import { SingleChoiceOptionCustom } from "../../../../types/settings";
-import {
-  StorageSettings,
-  StorageSettingsCustom,
-} from "../../../../types/storage";
+import { useStorage } from "@/hooks/useStorage";
+import { SingleChoiceOptionCustom } from "@/types/settings";
+import { StorageSettings, StorageSettingsCustom } from "@/types/storage";
 import CustomField from "./CustomField";
 import { OptionProps } from "./Option";
 import Radio from "./Radio";

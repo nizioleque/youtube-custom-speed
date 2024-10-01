@@ -1,9 +1,6 @@
+import { SingleChoiceOption } from "@/types/settings";
+import { StorageSettings, StorageSettingsCustom } from "@/types/storage";
 import { RadioGroup } from "@mui/joy";
-import { SingleChoiceOption } from "../../../../types/settings";
-import {
-  StorageSettings,
-  StorageSettingsCustom,
-} from "../../../../types/storage";
 import Option from "./Option";
 
 interface SingleChoiceSettingPropsBase<T extends keyof StorageSettings> {

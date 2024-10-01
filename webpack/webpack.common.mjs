@@ -34,6 +34,9 @@ export default {
   ],
   resolve: {
     extensions: [".tsx", ".ts", "..."],
+    alias: {
+      "@": path.resolve("./src"),
+    },
   },
   output: {
     path: path.resolve("./dist/js"),

@@ -1,7 +1,7 @@
+import { waitUntilExists } from "@/utils/dom";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import ReactDOM from "react-dom/client";
-import { waitUntilExists } from "../utils/dom";
 import App from "./App";
 import ContextProvider from "./ContextProvider";
 import { getControls } from "./utils";

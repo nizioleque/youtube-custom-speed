@@ -1,6 +1,6 @@
+import { useStorage } from "@/hooks/useStorage";
+import { StorageContent } from "@/types/storage";
 import { useCallback, useContext, useEffect, useState } from "react";
-import { useStorage } from "../../hooks/useStorage";
-import { StorageContent } from "../../types/storage";
 import AppContext from "../context/AppContext";
 import useSetSpeed from "./useSetSpeed";
 

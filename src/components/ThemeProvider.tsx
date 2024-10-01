@@ -1,6 +1,6 @@
+import theme from "@/const/theme";
 import { CssBaseline, CssVarsProvider } from "@mui/joy";
 import { ReactNode } from "react";
-import theme from "../const/theme";
 
 interface ThemeProviderProps {
   children: ReactNode;

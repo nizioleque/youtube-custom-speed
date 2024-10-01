@@ -1,10 +1,7 @@
+import { SingleChoiceOptionCustom } from "@/types/settings";
+import { StorageSettings, StorageSettingsCustom } from "@/types/storage";
 import { FormControl, FormHelperText, Input } from "@mui/joy";
 import { ChangeEvent, useState } from "react";
-import { SingleChoiceOptionCustom } from "../../../../types/settings";
-import {
-  StorageSettings,
-  StorageSettingsCustom,
-} from "../../../../types/storage";
 import { OptionProps } from "./Option";
 
 type CustomFieldProps<T extends keyof StorageSettingsCustom> = OptionProps<

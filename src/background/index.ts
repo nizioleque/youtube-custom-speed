@@ -1,6 +1,6 @@
 // TODO use Promise Chrome API
 
-import { StorageContent } from "../types/storage";
+import { StorageContent } from "@/types/storage";
 
 // this runs when the extension is first installed and loads the settings from synchronized storage (or sets the default values)
 chrome.runtime.onInstalled.addListener((details) => {

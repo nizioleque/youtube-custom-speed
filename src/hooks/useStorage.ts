@@ -1,6 +1,6 @@
+import { StorageContent } from "@/types/storage";
+import { SetValue } from "@/types/utils";
 import { useEffect, useState } from "react";
-import { StorageContent } from "../types/storage";
-import { SetValue } from "../types/utils";
 
 // adapted from JohnBra on GitHub
 // https://gist.github.com/JohnBra/c81451ea7bc9e77f8021beb4f198ab96

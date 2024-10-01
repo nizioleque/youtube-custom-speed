@@ -1,5 +1,5 @@
+import { waitUntilExists } from "@/utils/dom";
 import { useEffect, useState } from "react";
-import { waitUntilExists } from "../../utils/dom";
 import { getVideo } from "../utils";
 
 function useCurrentSpeed() {

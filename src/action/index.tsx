@@ -1,5 +1,5 @@
+import ThemeProvider from "@/components/ThemeProvider";
 import ReactDOM from "react-dom/client";
-import ThemeProvider from "../components/ThemeProvider";
 import App from "./App";
 
 function injectReact() {

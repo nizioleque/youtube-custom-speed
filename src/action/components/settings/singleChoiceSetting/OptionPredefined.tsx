@@ -1,9 +1,9 @@
-import { useStorage } from "../../../../hooks/useStorage";
+import { useStorage } from "@/hooks/useStorage";
 import {
   SingleChoiceOptionPredefined,
   SingleChoiceSettingAny,
-} from "../../../../types/settings";
-import { StorageSettings } from "../../../../types/storage";
+} from "@/types/settings";
+import { StorageSettings } from "@/types/storage";
 import { OptionProps } from "./Option";
 import Radio from "./Radio";
 
