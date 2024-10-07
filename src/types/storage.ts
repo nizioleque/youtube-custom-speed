@@ -6,7 +6,7 @@ import {
 import { PickByType } from "./utils";
 
 export interface StorageContent {
-  currentSpeed: number;
+  lastSpeed: number;
   speedList: number[];
   newTabSpeed: SingleChoiceSettingStorage<
     "normal" | "last" | "doNothing",

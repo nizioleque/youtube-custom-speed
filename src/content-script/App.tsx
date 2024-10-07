@@ -4,12 +4,14 @@ import Controls from "./components/Controls";
 import Menu from "./components/Menu";
 import useKeyboardShortcuts from "./hooks/useKeyboardShortcuts";
 import useNewVideoSpeed from "./hooks/useNewVideoSpeed";
+import useSyncSpeed from "./hooks/useSyncSpeed";
 
 function App() {
   const [isTextHover, setIsTextHover] = useState<boolean>(false);
 
   useNewVideoSpeed();
   useKeyboardShortcuts();
+  useSyncSpeed();
 
   return (
     <Box

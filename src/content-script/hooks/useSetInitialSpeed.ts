@@ -1,12 +1,11 @@
 import { useStorage } from "@/hooks/useStorage";
 import { StorageContent } from "@/types/storage";
-import { useCallback, useContext, useEffect, useState } from "react";
-import AppContext from "../context/AppContext";
+import { useCallback, useEffect, useState } from "react";
 import useSetSpeed from "./useSetSpeed";
 
 function useSetInitialSpeed() {
   const [initialSpeed] = useStorage("newTabSpeed", null);
-  const { lastSpeed } = useContext(AppContext)!;
+  const [lastSpeed] = useStorage("lastSpeed", 1);
 
   const [awaitingChange, setAwaitingChange] = useState<boolean>(false);
 
@@ -24,8 +23,8 @@ function useSetInitialSpeed() {
           setSpeed(1);
           break;
         case "last":
-          // TODO fix - this should use last speed from storage, not context
-          if (lastSpeed !== undefined) setSpeed(lastSpeed);
+          // TODO test if this works
+          setSpeed(lastSpeed);
           break;
       }
     },

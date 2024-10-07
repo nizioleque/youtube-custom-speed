@@ -3,7 +3,6 @@ import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import ContextProvider from "./ContextProvider";
 import { getControls } from "./utils";
 
 async function injectReact() {
@@ -19,9 +18,7 @@ async function injectReact() {
   const reactRoot = ReactDOM.createRoot(container);
   reactRoot.render(
     <CacheProvider value={cache}>
-      <ContextProvider>
-        <App />
-      </ContextProvider>
+      <App />
     </CacheProvider>
   );
 }

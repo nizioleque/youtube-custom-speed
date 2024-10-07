@@ -1,13 +1,12 @@
 import { useStorage } from "@/hooks/useStorage";
 import { waitUntilExists } from "@/utils/dom";
-import { useCallback, useContext } from "react";
-import AppContext from "../context/AppContext";
+import { useCallback } from "react";
 import { getVideo } from "../utils";
 import useCurrentSpeed from "./useCurrentSpeed";
 
 function useSetSpeed() {
   const [speedList] = useStorage("speedList", [] as number[]);
-  const { setLastSpeed } = useContext(AppContext)!;
+  const [_, setLastSpeed] = useStorage("lastSpeed", 1);
 
   const currentSpeed = useCurrentSpeed();
 

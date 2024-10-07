@@ -1,12 +1,11 @@
 import { useStorage } from "@/hooks/useStorage";
-import { useContext, useEffect, useState } from "react";
-import AppContext from "../context/AppContext";
+import { useEffect, useState } from "react";
 import useSetInitialSpeed from "./useSetInitialSpeed";
 import useSetSpeed from "./useSetSpeed";
 
 function useNewVideoSpeed() {
   const [newVideoSpeed] = useStorage("newVideoSpeed", null);
-  const { lastSpeed } = useContext(AppContext)!;
+  const [lastSpeed] = useStorage("lastSpeed", 1);
 
   const [wasStartEvent, setWasStartEvent] = useState<boolean>(false);
 
@@ -37,8 +36,7 @@ function useNewVideoSpeed() {
 
       switch (newVideoSpeed.selectedOption) {
         case "keep":
-          // TODO test if this works
-          if (lastSpeed !== undefined) setSpeed(lastSpeed);
+          setSpeed(lastSpeed);
           break;
         case "restore":
           setInitialSpeed();
