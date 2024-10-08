@@ -2,6 +2,7 @@ import { Box } from "@mui/joy";
 import { useState } from "react";
 import Controls from "./components/Controls";
 import Menu from "./components/Menu";
+import useHideDefaultMenu from "./hooks/useHideDefaultMenu";
 import useKeyboardShortcuts from "./hooks/useKeyboardShortcuts";
 import useNewVideoSpeed from "./hooks/useNewVideoSpeed";
 import useSyncSpeed from "./hooks/useSyncSpeed";
@@ -12,6 +13,7 @@ function App() {
   useNewVideoSpeed();
   useKeyboardShortcuts();
   useSyncSpeed();
+  useHideDefaultMenu();
 
   return (
     <Box

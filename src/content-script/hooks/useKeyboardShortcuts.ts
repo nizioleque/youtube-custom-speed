@@ -1,5 +1,5 @@
 import { useEventListener } from "usehooks-ts";
-import { getVideo } from "../utils";
+import { getBezelText } from "../utils";
 import useSetSpeed from "./useSetSpeed";
 
 const ElementsToIgnore = [
@@ -16,9 +16,7 @@ function useKeyboardShortcuts() {
   const { decreaseSpeed, increaseSpeed } = useSetSpeed();
 
   const triggerShortcutUi = (newSpeed: number) => {
-    const playerContainer = getVideo()?.parentElement?.parentElement;
-    const bezelText =
-      playerContainer?.querySelector<HTMLElement>(".ytp-bezel-text");
+    const bezelText = getBezelText();
     if (!bezelText) return;
 
     bezelText.innerText = `${newSpeed}x`;
