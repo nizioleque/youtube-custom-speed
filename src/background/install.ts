@@ -1,13 +1,13 @@
 import { StorageContent } from "@/types/storage";
 
-export function handleInstall() {
-  initializeStorage();
+export async function handleInstall() {
+  await Promise.all([initializeStorage(), showTutorial()]);
 }
 
-function initializeStorage() {
-  // configure default memory
+async function initializeStorage() {
   const defaultSettings: StorageContent = {
     currentSpeed: 1,
+    lastSpeed: 1,
     speedList: [0.1, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 3, 5, 16],
     newTabSpeed: {
       selectedOption: "normal",
@@ -22,17 +22,10 @@ function initializeStorage() {
     },
   };
 
-  chrome.storage.sync.get(Object.keys(defaultSettings), (items) => {
-    if (chrome.runtime.lastError) console.error(chrome.runtime.lastError);
-    else {
-      // TODO fix types
-      Object.keys(defaultSettings).forEach((key) => {
-        if (items[key] === undefined) {
-          const object = {};
-          object[key] = defaultSettings[key];
-          chrome.storage.sync.set(object);
-        }
-      });
-    }
-  });
+  await chrome.storage.sync.set(defaultSettings);
+}
+
+async function showTutorial() {
+  const url = chrome.runtime.getURL("static/welcome.html");
+  await chrome.tabs.create({ url });
 }
