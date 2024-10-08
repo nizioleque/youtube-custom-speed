@@ -6,6 +6,7 @@ import {
 import { PickByType } from "./utils";
 
 export interface StorageContent {
+  storageSchemaVersion: 2;
   lastSpeed: number;
   speedList: number[];
   newTabSpeed: SingleChoiceSettingStorage<
