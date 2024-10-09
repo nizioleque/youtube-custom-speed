@@ -23,7 +23,6 @@ function useSetInitialSpeed() {
           setSpeed(1);
           break;
         case "last":
-          // TODO test if this works
           setSpeed(lastSpeed);
           break;
       }

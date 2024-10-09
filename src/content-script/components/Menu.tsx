@@ -11,7 +11,6 @@ interface MenuProps {
 
 function Menu({ isTextHover }: MenuProps) {
   // TODO add other styles from the settings popup (transition, shadow, etc.)
-  // TODO disable user select
 
   const [speedList] = useStorage("speedList", [] as number[]);
 
@@ -70,6 +69,7 @@ function Menu({ isTextHover }: MenuProps) {
             onClick={() => setSpeed(speed)}
             sx={{
               listStyleType: "none",
+              userSelect: "none",
               paddingX: 2,
 
               // the .003 is necessary to correct YouTube's imprecise font size
