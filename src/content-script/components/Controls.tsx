@@ -8,8 +8,6 @@ interface ControlsProps {
 }
 
 function Controls({ setIsTextHover }: ControlsProps) {
-  // TODO fix font color
-
   const currentSpeed = useCurrentSpeed();
 
   return (
@@ -18,6 +16,7 @@ function Controls({ setIsTextHover }: ControlsProps) {
         display: "inline-flex",
         height: "100%",
         userSelect: "none",
+        marginRight: "6px",
       }}
     >
       <Button direction="back" />
@@ -31,6 +30,7 @@ function Controls({ setIsTextHover }: ControlsProps) {
           zIndex: 41,
           "& > *": {
             gridArea: "1 / 1",
+            padding: 0,
           },
         }}
       >
@@ -42,7 +42,7 @@ function Controls({ setIsTextHover }: ControlsProps) {
         >
           9.99x
         </Box>
-        <Box component="span" className="ytp-time-display">
+        <Box component="span" className="ytp-time-display ytp-time-current">
           {currentSpeed}x
         </Box>
       </Box>
