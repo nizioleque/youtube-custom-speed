@@ -10,8 +10,6 @@ interface MenuProps {
 }
 
 function Menu({ isTextHover }: MenuProps) {
-  // TODO add other styles from the settings popup (transition, shadow, etc.)
-
   const [speedList] = useStorage("speedList", [] as number[]);
 
   const [isMenuHover, setIsMenuHover] = useState<boolean>(false);

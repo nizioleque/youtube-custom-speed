@@ -7,14 +7,15 @@ const PathForward =
   "M 10,24 18.5,18 10,12 V 24 z M 19,12 V 24 L 27.5,18 19,12 z";
 
 function Icon({ direction }: IconProps) {
-  // TODO add shadow
+  const id = `${chrome.runtime.id}-${direction}`;
 
   return (
     <svg height="100%" viewBox="0 0 36 36" width="100%">
-      <use className="ytp-svg-shadow" />
+      <use className="ytp-svg-shadow" xlinkHref={`#${id}`} />
       <path
         className="ytp-svg-fill"
         d={direction === "back" ? PathBack : PathForward}
+        id={id}
       />
     </svg>
   );
