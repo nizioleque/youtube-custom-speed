@@ -68,7 +68,11 @@ function loadMenu(e) {
 		// add speed buttons
 		prepareMenuOptions();
 	}
-	xhr.open('GET', chrome.runtime.getURL('ui.html'), true);
+
+	const isModern = document.querySelector('.ytp-delhi-modern') !== null;
+	const uiUrl = isModern ? 'ui-modern.html' : 'ui.html';
+	
+	xhr.open('GET', chrome.runtime.getURL(uiUrl), true);
 	xhr.send();
 }
 
